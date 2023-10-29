@@ -74,6 +74,9 @@ const date = new Date()
     font-weight: 900;
     margin-top: 60vh;
     margin-left: 5vw;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-name: fadeInRight;
 }
 
 .topLineNumber {
@@ -87,5 +90,16 @@ const date = new Date()
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 </style>

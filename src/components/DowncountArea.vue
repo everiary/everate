@@ -1,7 +1,8 @@
 <template>
     <div class="downcountarea">
         <ul>
-        <li v-for="item of data">{{ item.title }}还有{{ computeDate(item.date) }}天</li>
+            <li v-for="item of data">{{ item.title }}还有<span class="dateNum">{{ ' ' + computeDate(item.date) + ' ' }}</span>天
+            </li>
         </ul>
     </div>
 </template>
@@ -57,7 +58,49 @@ const computeDate = (item) => {
 
 <style scoped>
 .downcountarea {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    text-align: left;
     display: flex;
     color: #fff;
 }
-</style>
+
+li {
+    font-size: 1.5vw;
+    list-style: none;
+}
+
+.dateNum {
+    /*text-decoration: underline ;
+    color: orange;*/
+    position: relative;
+    font-size: 3vw;
+}
+
+.dateNum::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 600%, 600%;
+    animation: gradientBG 6s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}</style>
