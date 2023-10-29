@@ -5,29 +5,15 @@ import OperateArea from './components/OperateArea.vue';
 
 <template>
     <CalendarArea />
-
-    <transition name="changeShow" appear>
-        <OperateArea />
-    </transition>
+    <OperateArea />
 </template>
 
 <style scoped>
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
 </style>
 
 <style>
 #app {
-    background-image: url("/d.jpg");
+    background-image: url("/e.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
@@ -36,6 +22,7 @@ import OperateArea from './components/OperateArea.vue';
     height: 100vh;
     width: 100vw;
     display: flex;
+    overflow: hidden;
 }
 
 body {
