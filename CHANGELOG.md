@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.1-beta.1](https://gitee.com/everiary/everate/compare/v0.0.1-beta.0...v0.0.1-beta.1) (2023-10-29)
+
+
+### ✨ Features | 新功能
+
+* 初步完成日期相关功能。 ([84c3fd0](https://gitee.com/everiary/everate/commit/84c3fd0d5b5c4b16f538922499ee7fdc5d5d1109))
+* 改进了控制区域的功能，预计下个版本进行完善。 ([70a3b3b](https://gitee.com/everiary/everate/commit/70a3b3ba7b06245cba6712975c8d831601ffc196))
+* 新增hitokoto功能。 ([544e0dc](https://gitee.com/everiary/everate/commit/544e0dcf8594bcc99d2d2ae756c7c9695316c176))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 小修小补 ([f9e3a74](https://gitee.com/everiary/everate/commit/f9e3a745565163f8f8b926f7042d56c866ea8477))
+
 ### [0.0.1-beta.0](https://gitee.com/everiary/everate/compare/v0.0.0...v0.0.1-beta.0) (2023-10-28)
 
 
