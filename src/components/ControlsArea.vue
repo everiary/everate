@@ -4,7 +4,7 @@
         <button @click="b">About</button>
     </div>
 </template>
-<script setup>
+<script setup lang="ts">
 const a = () => { alert('1') }
 const b = () => { alert('2') }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div id="hitokoto" @click="getHito">{{ hito }}</div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
 const hito = ref('')

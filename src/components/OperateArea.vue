@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import DowncountArea from "./DowncountArea.vue";
 import HitokotoBlock from "./HitokotoBlock.vue";
 import ControlsArea from "./ControlsArea.vue";
