@@ -1,7 +1,7 @@
 <template>
     <div class="operate">
         <div class="visible">
-            <div class="avatar">111</div>
+            <div class="avatar"><AvatarBlock /></div>
             <div class="whito"><HitokotoBlock /></div>
             <div class="downcount"><DowncountArea /></div>
             <div class="controls"><ControlsArea /></div>
@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import DowncountArea from "./DowncountArea.vue";
+import AvatarBlock from "./AvatarBlock.vue"
 import HitokotoBlock from "./HitokotoBlock.vue";
 import ControlsArea from "./ControlsArea.vue";
 </script>
@@ -23,9 +24,7 @@ import ControlsArea from "./ControlsArea.vue";
     background: rgba(23, 23, 23, 0.9);
     width: 40vw;
     height: 100vh;
-    border-radius: 75px 0px 0px 75px;
-    -moz-border-radius: 75px 0px 0px 75px;
-    -webkit-border-radius: 75px 0px 0px 75px;
+    border-radius: 4vw 0px 0px 4vw;
     animation-duration: 1.5s;
     animation-fill-mode: both;
     animation-name: fadeInLeft;
@@ -37,12 +36,14 @@ import ControlsArea from "./ControlsArea.vue";
     flex-direction: column;
 }
 .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 30vh;
 }
 
 .whito {
-    position: relative;
     width: 100%;
     height: 30vh;
 }
