@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import CalendarArea from './components/CalendarArea.vue';
 import OperateArea from './components/OperateArea.vue';
-const imageUrl = 'https://source.unsplash.com/collection/94734566/1920x1080'
+const imageUrl = 'https://source.unsplash.com/collection/94734566/1920x1080';
+const imageUrlDev = '/d.jpg'
 </script>
 
 <template>
-    <div id="wallpaper" :style="{backgroundImage: `url(${imageUrl})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}">
+    <div id="wallpaper"
+        :style="{ backgroundImage: `url(${imageUrlDev})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }">
         <CalendarArea />
         <OperateArea />
     </div>
