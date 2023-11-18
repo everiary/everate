@@ -1,21 +1,20 @@
 <template>
     <div class="controlBars">
-        <button @click="formVisibilityDev = !formVisibilityDev" class="settings">Settings<span class="arrow"> ›</span></button>
-        <formDev></formDev>
-        <button @click="b">About<span class="arrow"> ›</span></button>
+        <button @click="settingVisible = !settingVisible" class="settings">Settings<span class="arrow"> ›</span></button>
+        <formDev v-model:visible="settingVisible"><p>1433223</p></formDev>
+        <button @click="aboutVisible = !aboutVisible">About<span class="arrow"> ›</span></button>
+        <formDev v-model:visible="aboutVisible"><p>1</p></formDev>
+
     </div>
 </template>
 
 <script setup lang="ts">
 import formDev from './form/index.vue'
-import { ref, provide } from 'vue'
+import { ref } from 'vue'
 import type { Ref } from 'vue'
 
-let formVisibilityDev: Ref<boolean> = ref(false)
-provide('isOpen',formVisibilityDev)
-
-
-const b = () => { alert('2') }
+let settingVisible: Ref<boolean> = ref(false)
+let aboutVisible: Ref<boolean> = ref(false)
 </script>
 <style scoped>
 .controlBars {

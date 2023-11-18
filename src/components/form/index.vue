@@ -1,17 +1,16 @@
 <template>
     <Teleport to="body">
-        <div class="formClass" v-show="active">
+        <div class="formClass" v-show="visible">
             <div class="formFramework">
                 <div class="formHeader">
                     <span id="formTitle">{{ title }}</span>
-                    <span id="crossBtn"><button @click="active = !active" style="padding: 0.5vw;font-size: 1vw;">x</button></span>
+                    <span id="crossBtn"><button @click="$emit('update:visible', false)" style="padding: 0.5vw;font-size: 1vw;">x</button></span>
                 </div>
                 <div class="formBody">
-                    <!--<slot></slot>-->
-                    111111111
+                    <slot></slot>
                 </div>
                 <div class="formFooter">
-                    <button @click="active = !active" style="margin-right: 2vw;">cancel</button>
+                    <button style="margin-right: 2vw;">cancel</button>
                 </div>
             </div>
         </div>
@@ -20,10 +19,12 @@
 
 <script setup>
 import { inject, ref } from 'vue'
-const show = inject('isOpen')
-const active = ref(show)
+
+defineProps(['visible'])
+defineEmits(['update:visible'])
+
 const title = ref('wemsx')
-console.log(show)
+
 </script>
 
 <style scoped>

@@ -2,7 +2,7 @@
 import CalendarArea from './components/CalendarArea.vue';
 import OperateArea from './components/OperateArea.vue';
 const imageUrl = 'https://source.unsplash.com/collection/94734566/1920x1080';
-const imageUrlDev = '/d.jpg'
+const imageUrlDev = '/d.jpg';
 </script>
 
 <template>
