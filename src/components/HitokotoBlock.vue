@@ -1,8 +1,8 @@
 <template>
-    <div id="hitokoto" @click="getHito">{{ hito }}</div>
+    <div id="hitokoto" class="of absolute font-size-2vw text-center color-#f9f4dc w-80% left-10% top-50%" @click="getHito">{{ hito }}</div>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
 const hito = ref('')
 
@@ -19,14 +19,6 @@ getHito()
 </script>
 <style scoped>
 #hitokoto {
-    position: absolute;
-    left: 10%;
-    top: 50%;
-    width: 80%;
-    text-align: center;
-    font-size: 2vw;
-    color: #f9f4dc;
     font-family: "Microsoft Yahei";
-    overflow: hidden;
 }
 </style>

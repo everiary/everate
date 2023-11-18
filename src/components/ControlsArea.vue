@@ -1,9 +1,13 @@
 <template>
-    <div class="controlBars">
+    <div class="controlBars absolute left-10% w-80% flex grid-gap-3vw">
         <button @click="settingVisible = !settingVisible" class="settings">Settings<span class="arrow"> ›</span></button>
-        <formDev v-model:visible="settingVisible"><p>1433223</p></formDev>
+        <formDev v-model:visible="settingVisible">
+            <p>1433223</p>
+        </formDev>
         <button @click="aboutVisible = !aboutVisible">About<span class="arrow"> ›</span></button>
-        <formDev v-model:visible="aboutVisible"><p>1</p></formDev>
+        <formDev v-model:visible="aboutVisible">
+            <p>1</p>
+        </formDev>
 
     </div>
 </template>
@@ -16,15 +20,8 @@ import type { Ref } from 'vue'
 let settingVisible: Ref<boolean> = ref(false)
 let aboutVisible: Ref<boolean> = ref(false)
 </script>
-<style scoped>
-.controlBars {
-    position: absolute;
-    left: 10%;
-    width: 80%;
-    display: flex;
-    grid-column-gap: 3vw;
-}
 
+<style scoped>
 /* idea from https://github.com/TimTrayler */
 button {
     --hover-shadows: 1.3vw 1.3vw 2.8vw #121212,
@@ -54,5 +51,4 @@ button:active {
         var(--accent) 0px 0px 30px 5px;
     background-color: var(--accent);
     transform: scale(0.95);
-}
-</style>
+}</style>

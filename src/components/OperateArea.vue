@@ -1,10 +1,10 @@
 <template>
     <div class="operate">
-        <div class="visible">
-            <div class="avatar"><AvatarBlock /></div>
-            <div class="whito"><HitokotoBlock /></div>
-            <div class="downcount"><DowncountArea /></div>
-            <div class="controls"><ControlsArea /></div>
+        <div class="visible w-40vw h-100vh flex flex-col">
+            <div class="avatar flexCenter w-full h-30vh"><AvatarBlock /></div>
+            <div class="whito w-full h-30vh"><HitokotoBlock /></div>
+            <div class="downcount relative w-full h-30vh"><DowncountArea /></div>
+            <div class="controls relative w-full h-10vh"><ControlsArea /></div>
         </div>
     </div>
 </template>
@@ -28,35 +28,6 @@ import ControlsArea from "./ControlsArea.vue";
     animation-duration: 1.5s;
     animation-fill-mode: both;
     animation-name: fadeInLeft;
-}
-.visible{
-    width: 40vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-.avatar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 30vh;
-}
-
-.whito {
-    width: 100%;
-    height: 30vh;
-}
-
-.downcount {
-    position: relative;
-    width: 100%;
-    height: 30vh;
-}
-.controls {
-    position: relative;
-    width: 100%;
-    height: 10vh;
 }
 @keyframes fadeInLeft {
   from {

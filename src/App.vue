@@ -7,23 +7,12 @@ const imageUrlDev = '/d.jpg';
 
 <template>
     <div id="wallpaper"
-        :style="{ backgroundImage: `url(${imageUrlDev})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }">
+        :style="{ backgroundImage: `url(${imageUrlDev})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }"
+        class="absolute left-0 top-0 h-100vh w-100vw flex of">
         <CalendarArea />
         <OperateArea />
     </div>
 </template>
-
-<style scoped>
-#wallpaper {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    overflow: hidden;
-}
-</style>
 
 <style>
 #app {

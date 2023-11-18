@@ -1,15 +1,15 @@
 <template>
     <Teleport to="body">
-        <div class="formClass" v-show="visible">
-            <div class="formFramework">
-                <div class="formHeader">
-                    <span id="formTitle">{{ title }}</span>
-                    <span id="crossBtn"><button @click="$emit('update:visible', false)" style="padding: 0.5vw;font-size: 1vw;">x</button></span>
+        <div class="formClass fixed left-0 top-0 w-100vw h-100vh flexCenter mask" v-show="visible">
+            <div class="formFramework fixed w-40vw h-60vh rd-0.8vw flex flex-col justify-center">
+                <div class="formHeader items-end h-10vh">
+                    <span id="formTitle" class="absolute p-1vw left-0 font-size-3vw Yahei">{{ title }}</span>
+                    <span id="crossBtn" class="absolute p-1vw right-0"><button @click="$emit('update:visible', false)" style="padding: 0.5vw;font-size: 1vw;">x</button></span>
                 </div>
-                <div class="formBody">
+                <div class="formBody h-40vh">
                     <slot></slot>
                 </div>
-                <div class="formFooter">
+                <div class="formFooter flex items-center justify-end h-10vh">
                     <button style="margin-right: 2vw;">cancel</button>
                 </div>
             </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { inject, ref } from 'vue'
+import { ref } from 'vue'
 
 defineProps(['visible'])
 defineEmits(['update:visible'])
@@ -28,52 +28,8 @@ const title = ref('wemsx')
 </script>
 
 <style scoped>
-.formClass {
-    position: fixed;
-    left: 0vw;
-    top: 0vw;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-}
 
 .formFramework {
-    position: fixed;
-    width: 40vw;
-    height: 60vh;
-    border-radius: 1vw;
-    background: #baccd9;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.formHeader {
-    align-items: flex-end;
-    height: 10vh;
-}
-.formBody {
-    height: 40vh;
-}
-.formFooter {
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-#formTitle {
-    position: absolute;
-    padding: 1vw;
-    left: 0px;
-    font-size: 3vw;
-}
-#crossBtn {
-    position: absolute;
-    padding: 1vw;
-    right: 0px
+    background: rgba(250,250,250,0.8);
 }
 </style>

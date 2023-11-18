@@ -1,13 +1,18 @@
 <template>
-    <div class="downcountarea">
+    <div class="downcountarea absolute left-10% top-10% w-80% text-left flex color-#fff">
         <ul>
-            <li v-for="item of data">{{ item.title }}还有<span class="dateNum">{{ ' ' + computeDate(item.date) + ' ' }}</span>天
+            <li v-for="item of data" class="font-size-1.5vw list-none">
+                {{ item.title }}还有
+                <span class="dateNum relative font-size-3vw">
+                    {{ ' ' + computeDate(item.date) + ' ' }}
+                </span>
+                天
             </li>
         </ul>
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="js">
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 
@@ -57,27 +62,6 @@ const computeDate = (item) => {
 </script>
 
 <style scoped>
-.downcountarea {
-    position: absolute;
-    left: 10%;
-    top: 10%;
-    width: 80%;
-    text-align: left;
-    display: flex;
-    color: #fff;
-}
-
-li {
-    font-size: 1.5vw;
-    list-style: none;
-}
-
-.dateNum {
-    /*text-decoration: underline ;
-    color: orange;*/
-    position: relative;
-    font-size: 3vw;
-}
 
 .dateNum::after {
     content: '';
@@ -85,7 +69,7 @@ li {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 0.2rem;
+    height: 0.3vw;
     background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 600%, 600%;
     animation: gradientBG 6s ease infinite;
@@ -103,4 +87,5 @@ li {
     100% {
         background-position: 0% 50%;
     }
-}</style>
+}
+</style>
