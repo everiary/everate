@@ -1,6 +1,6 @@
 <template>
-    <Teleport to="body">
-        <div class="formClass fixed left-0 top-0 w-100vw h-100vh flexCenter mask" v-show="visible">
+    <Teleport to="#app">
+        <div class="formClass fixed left-0 top-0 w-100vw h-100vh flexCenter mask" v-show="visible" >
             <div class="formFramework fixed w-40vw h-60vh rd-0.8vw flex flex-col justify-center">
                 <div class="formHeader items-end h-10vh">
                     <span id="formTitle" class="absolute p-1vw left-0 font-size-3vw Yahei">{{ title }}</span>
@@ -10,7 +10,7 @@
                     <slot></slot>
                 </div>
                 <div class="formFooter flex items-center justify-end h-10vh">
-                    <button style="margin-right: 2vw;">cancel</button>
+                    <button style="margin-right: 2vw;" @click="$emit('update:visible', false)">cancel</button>
                 </div>
             </div>
         </div>

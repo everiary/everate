@@ -28,6 +28,13 @@ export const useDownCountStore = defineStore(
         m: 5,
         d: 20
       }
+    },{
+      title: '2025 高考',
+      date: {
+        y: 2025,
+        m: 6,
+        d: 6
+      }
     }])
 
     return { data };

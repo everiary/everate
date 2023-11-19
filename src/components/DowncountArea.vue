@@ -1,5 +1,5 @@
 <template>
-    <div class="downcountarea absolute left-10% top-10% w-80% text-left flex color-#fff">
+    <div class="downcountarea absolute left-5% w-80% text-left flex color-#fff">
         <ul>
             <li v-for="item of data" class="font-size-1.5vw list-none">
                 {{ item.title }}还有
