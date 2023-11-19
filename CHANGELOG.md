@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.1-beta.3](https://gitee.com/everiary/everate/compare/v0.0.1-beta.2...v0.0.1-beta.3) (2023-11-19)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 完善了表单打开机制。 ([c0362b8](https://gitee.com/everiary/everate/commit/c0362b876d41584c56cb7d5c3735ec2e8628ae5a))
+
+
+### ✨ Features | 新功能
+
+* 初步实现弹窗方案，仍有待改进。 ([31d5554](https://gitee.com/everiary/everate/commit/31d5554193c1ba03a74a77cdc86959f55e21b82f))
+* 改用canvas作为首页背景图。 ([a1b8d70](https://gitee.com/everiary/everate/commit/a1b8d702d23b6d0558600cce330d634275216839))
+* 新增头像功能。 ([f8c2042](https://gitee.com/everiary/everate/commit/f8c20423bf6361aeed3f78686c835605fca03f67))
+* 支持使用动态图片作为背景 ([e74c495](https://gitee.com/everiary/everate/commit/e74c49579402f4e0dc5ca5645f86081ea7974dbf))
+
+
+### 📦‍ Build System | 打包构建
+
+* 打包a7996467 ([1baa4c1](https://gitee.com/everiary/everate/commit/1baa4c1698da0558eceb8e1d438a5b8817359532))
+* 构建35c79997 ([9aa651e](https://gitee.com/everiary/everate/commit/9aa651e6742d0815dc7a606863ecedd875d51d7e))
+* 构建测试 ([305852c](https://gitee.com/everiary/everate/commit/305852cbfa3c5d9bed942defd64206a04a052f2f))
+* 构建f7e19a51 ([6f9024f](https://gitee.com/everiary/everate/commit/6f9024f16b553c8b4c5f059b174cb6944cbe3fdc))
+* 重新打包构建。 ([d7af593](https://gitee.com/everiary/everate/commit/d7af5933b82663a956abba11359380a843bcafaf))
+
+
+### 💄 Styles | 风格
+
+* 改用原子化unocss。 ([1f40c9f](https://gitee.com/everiary/everate/commit/1f40c9f50c3fc355012f468e25ec2554dd522518))
+* 修改多个组件的样式。 ([e2925cd](https://gitee.com/everiary/everate/commit/e2925cd21db43391c17dc598c43789fcddbf265a))
+* 增加了一个倒计时，修改样式。 ([ba6bd01](https://gitee.com/everiary/everate/commit/ba6bd01c4152ab2929a8b700279737de038ceda2))
+
 ### [0.0.1-beta.2](https://gitee.com/everiary/everate/compare/v0.0.1-beta.1...v0.0.1-beta.2) (2023-11-04)
 
 
