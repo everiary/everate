@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "build-only": "vite build",
+    "check": "run-p type-check \"build-only {@}\" --",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",
