@@ -1,5 +1,5 @@
 <template>
-    <div class="controlBars absolute left-10% w-80% flex grid-gap-3vw">
+    <div class="controlBars absolute flexCenter left-12% w-80% grid-gap-3vw">
         <button @click="settingVisible = !settingVisible" class="settings">Settings<span class="arrow"> ›</span></button>
         <formDev v-model:visible="settingVisible">
             <p>1433223</p>

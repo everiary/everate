@@ -1,12 +1,7 @@
 <template>
-    <div class="downcountarea absolute left-5% w-80% text-left flex color-#fff">
+    <div class="downcountarea absolute w-full text-left flexCenter color-#fff">
         <ul>
-            <li v-for="item of data" class="font-size-1.5vw list-none">
-                {{ item.title }}还有
-                <span class="dateNum relative font-size-3vw">
-                    {{ ' ' + computeDate(item.date) + ' ' }}
-                </span>
-                天
+            <li v-for="item of data" class="font-size-1.5vw list-none text-center">{{ item.title }}还有<span class="dateNum relative font-size-3vw">{{ ' ' + computeDate(item.date) + ' ' }}</span>天
             </li>
         </ul>
     </div>
