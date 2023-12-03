@@ -1,6 +1,6 @@
 <template>
     <div class="controlBars absolute flexCenter left-12% w-80% grid-gap-3vw">
-        <button @click="settingVisible = !settingVisible" class="settings">Settings<span class="arrow"> ›</span></button>
+        <button @click="settingVisible = !settingVisible" class="settings">设置<span class="arrow"> ›</span></button>
         <formBlock v-model:visible="settingVisible">
             <div>
                 <ul class="w-full p-0 line-height-5vh">
@@ -18,17 +18,17 @@
             </div>
         </formBlock>
 
-        <button @click="downcountVisible = !downcountVisible">DownCount<span class="arrow"> ›</span></button>
+        <button @click="downcountVisible = !downcountVisible">倒数日<span class="arrow"> ›</span></button>
         <formBlock v-model:visible="downcountVisible">
             <select v-model="selected">
-                <option disabled value="">请选择</option>
-                <option v-for="item of data">{{ item.title }}</option>
-            </select>
-            <p>{{ selected }}</p>
+                <option v-for="(item, index) of data" :value="index">{{ item.title }}</option>
+            </select><br/>
+            <input :id="'dataInputT'+ selected.toString()" v-model="data[selected].title" type="text" /><br/>
+            <input :id="'dataInputTs'+ selected.toString()" v-model="data[selected].timestamp" type="text" /><br/>
         </formBlock>
 
         <button v-if="config[config.findIndex(item => item.id == 'enable_about')].value"
-            @click="aboutVisible = !aboutVisible">About<span class="arrow"> ›</span></button>
+            @click="aboutVisible = !aboutVisible">关于<span class="arrow"> ›</span></button>
         <formBlock v-model:visible="aboutVisible">
             <p>还在施工中....</p>
         </formBlock>
@@ -50,7 +50,7 @@ const { data } = storeToRefs(useDownCountStore())
 let settingVisible: Ref<boolean> = ref(false)
 let aboutVisible: Ref<boolean> = ref(false)
 let downcountVisible: Ref<boolean> = ref(false)
-let selected = ref('')
+let selected: Ref<number> = ref(0)
 </script>
 
 <style scoped>
