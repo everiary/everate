@@ -3,11 +3,7 @@ import { ref } from "vue";
 
 interface Downcount {
   title: string,
-  date: {
-    y: number,// 0代表每年/月对应日期
-    m: number,
-    d: number
-  }
+  timestamp: number
 }
 
 export const useDownCountStore = defineStore(
@@ -15,26 +11,14 @@ export const useDownCountStore = defineStore(
   () => {
     const downcountEG: Downcount = {
       title: '新年',
-      date: {
-        y: 2024,
-        m: 1,
-        d: 1
-      }
+      timestamp: 1704038400000
     }
     const data = ref([downcountEG,{
       title: '喜欢Ta 2年整',
-      date: {
-        y: 2024,
-        m: 5,
-        d: 20
-      }
+      timestamp: 1716134400000
     },{
       title: '2025 高考',
-      date: {
-        y: 2025,
-        m: 6,
-        d: 6
-      }
+      timestamp: 1749171600000
     }])
 
     return { data };
