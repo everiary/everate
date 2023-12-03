@@ -125,6 +125,7 @@ onMounted(() => {
     width: 100vw;
     display: flex;
     overflow: hidden;
+    user-select: none;
 }
 
 body {
