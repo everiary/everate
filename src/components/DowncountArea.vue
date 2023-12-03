@@ -1,7 +1,7 @@
 <template>
-    <div class="downcountarea absolute w-full text-left flexCenter color-#fff">
+    <div class="downcountarea absolute w-full flexCenter color-#fff">
         <ul>
-            <li v-for="item of data" class="font-size-1.5vw list-none text-center">{{ item.title }}还有<span class="dateNum relative font-size-3vw">{{ ' ' + computeDate(item.date) + ' ' }}</span>天
+            <li v-for="item of data" class="font-size-1.5vw list-none text-center text-left">{{ item.title }}还有<span class="dateNum relative font-size-3vw">{{ ' ' + computeDatePlus(item.timestamp) + ' ' }}</span>天
             </li>
         </ul>
     </div>
@@ -11,11 +11,11 @@
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 
-import { useDownCountStore } from '../stores/downcount.ts'
-const { data } = storeToRefs(useDownCountStore())
+import { useDownCountStore } from '../stores/downcount.ts';
+const DownCountStore = useDownCountStore()
+const { data } = storeToRefs(DownCountStore)
 
-const how = (date1) => {
-    var endDate = Date.parse(date1);
+const duration = (endDate) => {
     var startDate = Date.now()
     if (startDate > endDate) {
         return 0;
@@ -27,12 +27,7 @@ const how = (date1) => {
     return days | 0;
 }
 
-const computeDate = (item) => {
-    /**
-     * 计算倒计时
-     * 
-     * 逻辑过于复杂，待优化。
-     */
+/*const computeDate = (item) => {
     if (item.m != 0 && item.y != 0) {
         let date = new Date(item.y, item.m - 1, item.d)
         return how(date)
@@ -52,7 +47,10 @@ const computeDate = (item) => {
             return how(new Date(isNextYear ? item.m - 1 : new Date.getMonth(), item.m, item.d))
         } else return how(new Date(item.y, item.m - 1, item.d))
     }
+}*/
 
+const computeDatePlus = (timestamp) => {
+    return duration(timestamp)
 }
 </script>
 
@@ -83,4 +81,5 @@ const computeDate = (item) => {
         background-position: 0% 50%;
     }
 }
+
 </style>

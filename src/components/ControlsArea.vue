@@ -2,21 +2,36 @@
     <div class="controlBars absolute flexCenter left-12% w-80% grid-gap-3vw">
         <button @click="settingVisible = !settingVisible" class="settings">Settings<span class="arrow"> ›</span></button>
         <formBlock v-model:visible="settingVisible">
-            <div class="overflow-hidden">
-            <ul class="w-full p-0">
-                <li v-for="item of data" class="list-none">{{ item.title + ' : ' + item.is }}
-                    <span class="relative float-right">
-                        <input class="checkboxInput" :id="item.title" type="checkbox" v-model="item.is" /><label class="toggleSwitch" :for="item.title"></label>
-                    </span>
-                </li>
-            </ul>
+            <div>
+                <ul class="w-full p-0 line-height-5vh">
+                    <li v-for="item of config" class="list-none v-mid">
+                        <span class="v-mid">{{ item.title + ' : ' }}</span>
+                        <span v-if="item.type == 'switch'" class="relative float-right mt-1vh">
+                            <input class="checkboxInput" :id="item.title" type="checkbox" v-model="item.value" /><label
+                                class="toggleSwitch" :for="item.title"></label>
+                        </span>
+                        <span v-else-if="item.type == 'input'" class="relative float-right v-mid">
+                            <input :id="item.title" v-model="item.value" type="text" />
+                        </span>
+                    </li>
+                </ul>
             </div>
         </formBlock>
-        <button @click="aboutVisible = !aboutVisible">About<span class="arrow"> ›</span></button>
-        <formBlock v-model:visible="aboutVisible">
-            <p>1</p>
+
+        <button @click="downcountVisible = !downcountVisible">DownCount<span class="arrow"> ›</span></button>
+        <formBlock v-model:visible="downcountVisible">
+            <select v-model="selected">
+                <option disabled value="">请选择</option>
+                <option v-for="item of data">{{ item.title }}</option>
+            </select>
+            <p>{{ selected }}</p>
         </formBlock>
 
+        <button v-if="config[config.findIndex(item => item.id == 'enable_about')].value"
+            @click="aboutVisible = !aboutVisible">About<span class="arrow"> ›</span></button>
+        <formBlock v-model:visible="aboutVisible">
+            <p>还在施工中....</p>
+        </formBlock>
     </div>
 </template>
 
@@ -24,13 +39,18 @@
 import formBlock from './form/index.vue'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
+import { storeToRefs } from 'pinia'
+
+import { useConfigStore } from '../stores/config'
+const { config } = storeToRefs(useConfigStore())
+
+import { useDownCountStore } from '../stores/downcount'
+const { data } = storeToRefs(useDownCountStore())
 
 let settingVisible: Ref<boolean> = ref(false)
 let aboutVisible: Ref<boolean> = ref(false)
-let data = ref([
-    { title: '用户名', value: 'wemsx', is: false },
-    { title: '头像地址', value: 'https://cravatar.cn/avatar/95d35c34b1302443c6b94a2aa74a2065', is: false }
-])
+let downcountVisible: Ref<boolean> = ref(false)
+let selected = ref('')
 </script>
 
 <style scoped>
