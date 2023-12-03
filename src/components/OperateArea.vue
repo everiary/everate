@@ -1,9 +1,9 @@
 <template>
     <div class="operate">
         <div class="visible w-40vw h-100vh flex flex-col">
-            <div class="avatar flexCenter w-full h-30vh"><AvatarBlock /></div>
+            <div class="avatar flexCenter w-full h-30vh mt-10vh"><AvatarBlock /></div>
             <div class="whito w-full h-25vh"><HitokotoBlock /></div>
-            <div class="downcount relative w-full h-35vh"><DowncountArea /></div>
+            <div class="downcount relative w-full h-35vh -mt-5vh"><DowncountArea /></div>
             <div class="controls relative w-full h-10vh"><ControlsArea /></div>
         </div>
     </div>
