@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.1-beta.4](https://gitee.com/everiary/everate/compare/v0.0.1-beta.3...v0.0.1-beta.4) (2023-12-03)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* 更改了icon ([727f711](https://gitee.com/everiary/everate/commit/727f711b302a6bb33d555d5e94b4cf0723337b66))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复pinia注入失败 ([94798c8](https://gitee.com/everiary/everate/commit/94798c83352ac9a47c05c578711ef2bb9ddb2cd4))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 更改package.json。 ([b873428](https://gitee.com/everiary/everate/commit/b873428f37da9a1b810079797833c6d553b00014))
+* 更新Vite依赖 ([02956ee](https://gitee.com/everiary/everate/commit/02956ee28ced82a48e5aeceaea3d3446b8a84aa8))
+* 引入了terser并测试构建. ([7365577](https://gitee.com/everiary/everate/commit/7365577547dd5ca80e21401746a699708800dcd1))
+
+
+### ✨ Features | 新功能
+
+* 禁用文字选中 ([ea72b63](https://gitee.com/everiary/everate/commit/ea72b6355026ec04f93fa0cc512f35b02cd12d97))
+* 新增表单交互功能。 ([09eb799](https://gitee.com/everiary/everate/commit/09eb7990092775510f0ad16446c77f0e5b3f8fd1))
+* 新增模态框功能 ([e66224c](https://gitee.com/everiary/everate/commit/e66224cadfc8fe7dda22e27210b952a628b0922f))
+* 支持修改downcount ([7e8d141](https://gitee.com/everiary/everate/commit/7e8d14132e926c0abaef5b56e798b3246b245ac1))
+
+
+### 💄 Styles | 风格
+
+* 调整了hitokoto显示位置 ([69f2517](https://gitee.com/everiary/everate/commit/69f2517dcc36e506c46024baf4882809378a0735))
+* 放弃了头像显示方案，该用项目图标。 ([a240ad0](https://gitee.com/everiary/everate/commit/a240ad0af9e14605c4b92315fcba53927398b647))
+* 修改模态框样式，修改关闭逻辑。 ([1c273bb](https://gitee.com/everiary/everate/commit/1c273bba415935b30f6c8d442e08c32639ae26bd))
+* 样式调整 ([63029e2](https://gitee.com/everiary/everate/commit/63029e25cf2a2339238eb9e4b3152357b29b7a1f))
+* 重写了日期显示的样式。 ([7236393](https://gitee.com/everiary/everate/commit/723639312a53a7271251ea98f506407456de052b))
+
+
+### 📦‍ Build System | 打包构建
+
+* 构建7805c6b3 ([922f344](https://gitee.com/everiary/everate/commit/922f344ac611f74b715535a022b9f7fe20eb6e46))
+* 构建f83ba5c9 ([521dac0](https://gitee.com/everiary/everate/commit/521dac044017bbeadcb1a696439e4fb88c42bde2))
+* 构建HSeT2-D_ ([406728c](https://gitee.com/everiary/everate/commit/406728c72341e564ce318dde1e444fcbd0eb0e2a))
+
 ### [0.0.1-beta.3](https://gitee.com/everiary/everate/compare/v0.0.1-beta.2...v0.0.1-beta.3) (2023-11-19)
 
 
