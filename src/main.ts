@@ -1,10 +1,9 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import pinia from "./stores/index";
 import App from './App.vue'
 import 'uno.css'
 
 const app = createApp(App)
-
-app.use(createPinia())
+app.use(pinia);
 
 app.mount('#app')
