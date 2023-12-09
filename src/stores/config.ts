@@ -21,13 +21,6 @@ export const useConfigStore = defineStore(
       type: 'input'
     },
     {
-      title: '头像地址',
-      id: 'imgurl',
-      value: '',
-      default: 'https://cravatar.cn/avatar/95d35c34b1302443c6b94a2aa74a2065',
-      type: 'input'
-    },
-    {
       title: '显示‘关于’',
       id: 'enable_about',
       value: true,

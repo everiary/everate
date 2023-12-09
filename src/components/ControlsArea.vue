@@ -15,6 +15,7 @@
                         </span>
                     </li>
                 </ul>
+                <button @click="clearStorage">刷新缓存</button>
             </div>
         </formBlock>
 
@@ -22,14 +23,15 @@
         <formBlock v-model:visible="downcountVisible">
             <select v-model="selected">
                 <option v-for="(item, index) of data" :value="index">{{ item.title }}</option>
-            </select><br/>
-            <input :id="'dataInputT'+ selected.toString()" v-model="data[selected].title" type="text" /><br/>
-            <input :id="'dataInputTs'+ selected.toString()" v-model="data[selected].timestamp" type="text" /><br/>
+            </select><br />
+            <input :id="'dataInputT' + selected.toString()" v-model="data[selected].title" type="text" /><br />
+            <input :id="'dataInputTs' + selected.toString()" v-model="data[selected].timestamp" type="text" /><br />
         </formBlock>
 
         <button v-if="config[config.findIndex(item => item.id == 'enable_about')].value"
             @click="aboutVisible = !aboutVisible">关于<span class="arrow"> ›</span></button>
         <formBlock v-model:visible="aboutVisible">
+            <span id="busuanzi_container_site_pv">本站总访问量: <span id="busuanzi_value_site_pv"></span>次</span>
             <p>还在施工中....</p>
         </formBlock>
     </div>
@@ -51,6 +53,16 @@ let settingVisible: Ref<boolean> = ref(false)
 let aboutVisible: Ref<boolean> = ref(false)
 let downcountVisible: Ref<boolean> = ref(false)
 let selected: Ref<number> = ref(0)
+
+const clearStorage = () => {
+    let confirmation = window.confirm('确认清除缓存吗？\n在非开发情况下慎用。')
+    if (confirmation) {
+        window.localStorage.clear();
+        location.reload();
+        return;
+    }
+    else return;
+}
 </script>
 
 <style scoped>
