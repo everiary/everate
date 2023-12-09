@@ -11,7 +11,8 @@
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",
     "release:patch": "standard-version --release-as patch",
-    "release": "standard-version --prerelease beta"
+    "release": "standard-version --prerelease beta",
+    "pages": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "pinia": "^2.1.7",
