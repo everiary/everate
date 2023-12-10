@@ -24,6 +24,6 @@ export const useDownCountStore = defineStore(
     return { data };
   },
   {
-    persist: true,
+    persist: true
   }
 );

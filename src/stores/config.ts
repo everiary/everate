@@ -26,10 +26,17 @@ export const useConfigStore = defineStore(
       value: true,
       default: true,
       type: 'switch'
+    },
+    {
+      title: '缓存清除前确认',
+      id: 'notification_before_cache_clear',
+      value: true,
+      default: true,
+      type: 'switch'
     }])
     return { config };
   },
   {
-    persist: true,
+    persist: true
   }
 );
