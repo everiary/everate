@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.1-beta.5](https://gitee.com/everiary/everate/compare/v0.0.1-beta.4...v0.0.1-beta.5) (2023-12-16)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 新增 github pages 上传命令。 ([1b4528a](https://gitee.com/everiary/everate/commit/1b4528af84b6d6778bd4a4b56fd25e2eb8cc3988))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 改用第三方busuanzi.icodeq.com作为统计源 ([ce75715](https://gitee.com/everiary/everate/commit/ce75715719acb9358b2936b34f37c45cd149734e))
+* 暂时停用 vite-pwa ([b7e38f0](https://gitee.com/everiary/everate/commit/b7e38f0c0c6aacf0d421daa863f17d899fa9c99f))
+
+
+### ✨ Features | 新功能
+
+* 简化 Canvas 背景引入流程 ([04bf79a](https://gitee.com/everiary/everate/commit/04bf79a1bcc77e4eac5fdf6c6d99ae040b599e22))
+* 新增 pwa 功能，但还未稳定 ([78ba28c](https://gitee.com/everiary/everate/commit/78ba28c1cecc7df85b4f5c19f7205334cb9bb60a))
+* 新增清除缓存及网站计数功能(暂时采用 busuanzi 作为服务。)） ([6ed3bdd](https://gitee.com/everiary/everate/commit/6ed3bdda9918d92973e076b89f5855af85737e0c))
+
+
+### 💄 Styles | 风格
+
+* 修改了部分样式 ([4b17322](https://gitee.com/everiary/everate/commit/4b17322d083cb4912480afc43313a058be283ed4))
+
+
+### 📦‍ Build System | 打包构建
+
+* 构建_1Q4d1Kd ([60ba244](https://gitee.com/everiary/everate/commit/60ba244eb7ecefe3b5379d166c5f53debca0763a))
+* 构建75HHJErR ([68ff6db](https://gitee.com/everiary/everate/commit/68ff6dbf85b9896478d8327dfc6e8ccb64309e07))
+* 构建Qf4sNXRG ([27bd9c0](https://gitee.com/everiary/everate/commit/27bd9c059574378f5824afa5225d52ca6f36926c))
+
 ### [0.0.1-beta.4](https://gitee.com/everiary/everate/compare/v0.0.1-beta.3...v0.0.1-beta.4) (2023-12-03)
 
 
