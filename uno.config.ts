@@ -7,6 +7,7 @@ export default defineConfig({
   rules: [
     ["Yahei", { "font-family": '"Microsoft Yahei"' }],
     ["mask", { "background-color": "rgba(0,0,0,0.6)" }],
+    ["InputPadding", { padding: `0 1vw` }],
   ],
   shortcuts: {
     of: "overflow-hidden",
