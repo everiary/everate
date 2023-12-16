@@ -1,7 +1,7 @@
 import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { VitePWA } from 'vite-plugin-pwa'
+//import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,7 +10,7 @@ export default defineConfig({
       configFile: './uno.config.ts'
     }),
     vue(),
-    VitePWA({
+    /*VitePWA({
       manifest: {
         name: "everate",
         description: "A lightened browser start page.",
@@ -38,7 +38,7 @@ export default defineConfig({
         enabled: true,
         type: "module"
     }
-    }),
+    }),*/
   ],
   build: {
     minify: 'terser',
