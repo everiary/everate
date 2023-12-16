@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.1-beta.6](https://gitee.com/everiary/everate/compare/v0.0.1-beta.5...v0.0.1-beta.6) (2023-12-16)
+
+
+### 📦‍ Build System | 打包构建
+
+* 构建tBirJvv4 ([4e84b0c](https://gitee.com/everiary/everate/commit/4e84b0cc3c24943b78a84ffeb62f38b2c8827ec9))
+* 构建tO9RX6vD ([dcf13fb](https://gitee.com/everiary/everate/commit/dcf13fbf2af4dd370a85d1c0e383207feac006e8))
+
+
+### ✏️ Documentation | 文档
+
+* 修改了 CHANGELOG 中的 url ([56cb470](https://gitee.com/everiary/everate/commit/56cb4706489ff5c3e4bd5a8222d6c128629c7733))
+
+
+### 💄 Styles | 风格
+
+* 小修小补 ([3fe2bc4](https://gitee.com/everiary/everate/commit/3fe2bc41559f502f0037260cb515fa4b0a7662bd))
+* 新增了一个 unocss rule ([4542132](https://gitee.com/everiary/everate/commit/45421325bda3126556221bc624fc4e05f26d2f21))
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* 重构了配置的格式. ([bd0041b](https://gitee.com/everiary/everate/commit/bd0041bec4f5a6d9d66568d1fab4e2f3f3f913d5))
+* 重构配置相关内容. ([eb9cc7f](https://gitee.com/everiary/everate/commit/eb9cc7f3a5357cbeaba26abf25dfad1c765b5f5f))
+
+
+### ✨ Features | 新功能
+
+* 新增 hitokoto_type 修改功能及配置导出. ([7ee2670](https://gitee.com/everiary/everate/commit/7ee26703d246460ba88525bc37c7124e326d003e))
+* 修改了倒计时store 的格式,新增对其的支持 ([0c661d8](https://gitee.com/everiary/everate/commit/0c661d86b9fa3c92b974998e59a1cdee68e66607))
+* 支持动态修改时间了 ([213c43d](https://gitee.com/everiary/everate/commit/213c43da53b2085d4837bfd34ad661bf3a0328d4))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 常规修改. ([161d83a](https://gitee.com/everiary/everate/commit/161d83a1ff542e98297e7e5862f968492bbcf02e))
+* 清除无用依赖. ([9c190a5](https://gitee.com/everiary/everate/commit/9c190a5d0f65a5329dd000deed61d7f825fb6471))
+
 ### [0.0.1-beta.5](https://github.com/everiary/everate/compare/v0.0.1-beta.4...v0.0.1-beta.5) (2023-12-16)
 
 
