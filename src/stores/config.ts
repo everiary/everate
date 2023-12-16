@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
 /*interface UserConfig {
   title: string,
@@ -13,27 +13,36 @@ import { ref } from "vue";
 export const useConfigStore = defineStore(
   "userConfig",
   () => {
-    const config = ref([{
-      title: '用户名',
-      id: 'username',
-      value: 'wemsx',
-      default: 'wemsx',
-      type: 'input'
-    },
-    {
-      title: '显示‘关于’',
-      id: 'enable_about',
-      value: true,
-      default: true,
-      type: 'switch'
-    },
-    {
-      title: '缓存清除前确认',
-      id: 'notification_before_cache_clear',
-      value: true,
-      default: true,
-      type: 'switch'
-    }])
+    const config = reactive({
+      username: {
+        title: '用户名',
+        value: 'wemsx',
+        choices: null,
+        default: 'wemsx',
+        type: 'input'
+      },
+      hitokoto_type: {
+        title: '一言类型',
+        value: 'a',
+        choices: ['a','b','c','d','e','f','g','h','i','j','k','l'],
+        default: 'a',
+        type: 'select'
+      },
+      enable_about: {
+        title: '显示‘关于’',
+        value: true,
+        choices: null,
+        default: true,
+        type: 'switch'
+      },
+      notification_before_cache_clear: {
+        title: '缓存清除前确认',
+        value: true,
+        choices: null,
+        default: true,
+        type: 'switch'
+      }
+    })
     return { config };
   },
   {
