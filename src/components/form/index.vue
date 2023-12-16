@@ -2,21 +2,23 @@
     <Teleport to="#app">
         <div class="formMain fixed left-0 top-0 w-100vw h-100vh flexCenter " v-show="visible">
             <div class="formClass fixed left-0 top-0 w-100vw h-100vh flexCenter mask -z-1"
-                @click="$emit('update:visible', false)"></div>
+                @click="$emit('update:visible', false), clearDate()"></div>
             <div class="formFramework">
                 <div class="formBody">
                     <slot />
                 </div>
-                <div class="formFooter flex items-center justify-end h-10vh">
-                    <!--<button style="margin-right: 2vw;" @click="$emit('update:visible', false)">cancel</button>-->
-                </div>
+                <!--<div class="formFooter flex items-center justify-end h-10vh">
+                    <button @click="$emit('update:visible', false)">cancel</button>
+                </div>-->
             </div>
         </div>
     </Teleport>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
+import { useDownCountStore } from '../../stores/downcount'
+const { clearDate } = useDownCountStore()
 
 defineProps(['visible'])
 defineEmits(['update:visible'])

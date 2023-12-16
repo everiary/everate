@@ -21,11 +21,20 @@
 
         <button @click="downcountVisible = !downcountVisible">倒数日<span class="arrow"> ›</span></button>
         <formBlock v-model:visible="downcountVisible">
-            <select v-model="selected">
+            <select v-model="selected"
+                class="appearance-none relative text-pink-400 bg-transparent outline-none placeholder-violet-700 rd-0.6vw focus:border-violet-500 block w-40% p-2.5">
                 <option v-for="(item, index) of data" :value="index">{{ item.title }}</option>
             </select><br />
-            <input :id="'dataInputT' + selected.toString()" v-model="data[selected].title" type="text" /><br />
-            <input :id="'dataInputTs' + selected.toString()" v-model="data[selected].timestamp" type="text" /><br />
+
+            <!--<input :id="'dataInputT' + selected.toString()" v-model="data[selected].title" type="text" /><br />
+            <input :id="'dataInputTs' + selected.toString()" v-model="data[selected].timestamp" type="text" /><br />-->
+            <div class="flex flex-col w-25vw gap-1vw">
+                <span>年: <input type="number" v-model.number="data[selected].date.year"  placeholder="年" id="dateInputYear" class="w-70%" /></span>
+                <div class="flex justify-between w-full">
+                    <span>月: <input v-model.number="data[selected].date.month" placeholder="月" id="dateInputMonth" class="w-40%" /></span>
+                    <span>日: <input v-model.number="data[selected].date.day" placeholder="日" id="dateInputDay" class="w-40%" /></span>
+                </div>
+            </div>
         </formBlock>
 
         <button v-if="config[config.findIndex(item => item.id == 'enable_about')].value"
@@ -47,7 +56,9 @@ import { useConfigStore } from '../stores/config'
 const { config } = storeToRefs(useConfigStore())
 
 import { useDownCountStore } from '../stores/downcount'
-const { data } = storeToRefs(useDownCountStore())
+const downCountStore = useDownCountStore()
+const { data } = storeToRefs(downCountStore)
+const { clearDate } = downCountStore;
 
 let settingVisible: Ref<boolean> = ref(false)
 let aboutVisible: Ref<boolean> = ref(false)
@@ -66,6 +77,27 @@ const clearStorage = () => {
 </script>
 
 <style scoped>
+#dateInputMonth,
+#dateInputDay,
+#dateInputYear {
+    height: 4vh;
+    background-color: #292929;
+    border-radius: 2vw;
+    border: 0.2vw solid #292929;
+    padding: 0 1.2vh;
+    outline: none;
+    caret-color: rgb(152, 88, 255);
+    color: rgb(212, 212, 212);
+    transition-duration: .2s;
+}
+
+#dateInputYear:focus,
+#dateInputMonth:focus,
+#dateInputDay:focus {
+    border: 2px solid rgb(152, 88, 255);
+    transition-duration: .2s;
+}
+
 /* idea from https://github.com/TimTrayler */
 button {
     --hover-shadows: 1.3vw 1.3vw 2.8vw #121212,
@@ -137,5 +169,4 @@ button:active {
 .checkboxInput:checked+.toggleSwitch {
     background-color: rgb(165, 255, 105);
     transition-duration: .2s;
-}
-</style>
+}</style>
