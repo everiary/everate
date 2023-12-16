@@ -55,9 +55,9 @@ export const useDownCountStore = defineStore(
         minute: date.getMinutes(),
         second: date.getSeconds(),
       };
-    };
+    }
 
-    function clearDate(){
+    function clearDate() {
       for (const item of data.value) {
         let { year, month, day, hour, minute, second } = parseTimestamp(
           item.timestamp
@@ -68,8 +68,20 @@ export const useDownCountStore = defineStore(
           day: day,
         };
       }
-    };
-    return { data, clearDate, parseTimestamp };
+      return;
+    }
+    function applyDate() {
+      for (const item of data.value) {
+        item.timestamp = Date.UTC(
+          item.date.year,
+          item.date.month,
+          item.date.day
+        );
+      }
+      return;
+    }
+
+    return { data, clearDate, applyDate, parseTimestamp };
   },
   {
     persist: true,

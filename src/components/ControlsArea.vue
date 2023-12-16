@@ -29,11 +29,16 @@
             <!--<input :id="'dataInputT' + selected.toString()" v-model="data[selected].title" type="text" /><br />
             <input :id="'dataInputTs' + selected.toString()" v-model="data[selected].timestamp" type="text" /><br />-->
             <div class="flex flex-col w-25vw gap-1vw">
-                <span>年: <input type="number" v-model.number="data[selected].date.year"  placeholder="年" id="dateInputYear" class="w-70%" /></span>
+                <span>年: <input type="number" v-model.number="data[selected].date.year" placeholder="年" id="dateInputYear"
+                        class="w-70%" /></span>
                 <div class="flex justify-between w-full">
-                    <span>月: <input v-model.number="data[selected].date.month" placeholder="月" id="dateInputMonth" class="w-40%" /></span>
-                    <span>日: <input v-model.number="data[selected].date.day" placeholder="日" id="dateInputDay" class="w-40%" /></span>
+                    <span>月: <input v-model.number="data[selected].date.month" placeholder="月" id="dateInputMonth"
+                            class="w-40%" /></span>
+                    <span>日: <input v-model.number="data[selected].date.day" placeholder="日" id="dateInputDay"
+                            class="w-40%" /></span>
                 </div>
+                <br /><button @click="applyDate(), downcountVisible = !downcountVisible, selected = 0">应用<span
+                        class="arrow"> ›</span></button>
             </div>
         </formBlock>
 
@@ -58,7 +63,7 @@ const { config } = storeToRefs(useConfigStore())
 import { useDownCountStore } from '../stores/downcount'
 const downCountStore = useDownCountStore()
 const { data } = storeToRefs(downCountStore)
-const { clearDate } = downCountStore;
+const { clearDate, applyDate } = downCountStore;
 
 let settingVisible: Ref<boolean> = ref(false)
 let aboutVisible: Ref<boolean> = ref(false)
