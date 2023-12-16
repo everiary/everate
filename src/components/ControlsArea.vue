@@ -31,7 +31,7 @@
         <button v-if="config[config.findIndex(item => item.id == 'enable_about')].value"
             @click="aboutVisible = !aboutVisible">关于<span class="arrow"> ›</span></button>
         <formBlock v-model:visible="aboutVisible">
-            <span id="busuanzi_container_site_pv">本站总访问量: <span id="busuanzi_value_site_pv"></span>次</span>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
             <p>还在施工中....</p>
         </formBlock>
     </div>
