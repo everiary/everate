@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useDownCountStore } from '../../stores/downcount'
+import { useDownCountStore } from '@/stores/downcount'
 const { clearDate } = useDownCountStore()
 
 defineProps(['visible'])
