@@ -16,15 +16,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useDownCountStore } from '@/stores/downcount'
 const { clearDate } = useDownCountStore()
 
 defineProps(['visible'])
 defineEmits(['update:visible'])
-
-const title = ref('wemsx')
-
 </script>
 
 <style scoped>
