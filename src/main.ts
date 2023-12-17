@@ -1,19 +1,15 @@
-import { createApp } from 'vue'
+import { createApp } from "vue";
 import pinia from "./stores/index";
-import App from './App.vue'
-import 'uno.css'
-import { drawStars } from './scripts/star.esm';
-/*import { useRegisterSW } from 'virtual:pwa-register/vue';
+import App from "./App.vue";
+import "uno.css";
+import { drawStars } from "./scripts/star.esm";
 
-useRegisterSW({
-    // 每小时检查一次
-    onRegistered: r => r && setInterval(async () => await r.update(), 3600000),
-    // 注册失败则报错到 console
-    onRegisterError: error => console.error(error)
-});*/
-
-const app = createApp(App)
+const app = createApp(App);
 app.use(pinia);
-app.mount('#app')
+app.mount("#app");
 
-drawStars()
+let storage = localStorage.getItem("userConfig");
+if (storage) {
+  let { config } = JSON.parse(storage);
+  drawStars(config.star_speed.value, config.star_amount.value);
+} else drawStars();

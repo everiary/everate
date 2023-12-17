@@ -1,4 +1,4 @@
-let drawStars:any = () => {
+let drawStars: any = (speed?: number, amount?: number) => {
   /**
    * author: @sun0225SUN
    * origin repo: https://github.com/sun0225SUN/home
@@ -55,7 +55,7 @@ let drawStars:any = () => {
     }
 
     // 以小角度旋转星空
-    rotateContext(0.0009);
+    rotateContext(speed ? speed / 10000 : 0.0009);
   }
 
   // 将上下文按指定角度旋转
@@ -69,7 +69,7 @@ let drawStars:any = () => {
   starContext.lineCap = "round";
 
   // 定义星星数量并创建星星对象数组
-  var numStars = 8000; // 调整此值以控制星星密度
+  var numStars = amount ? amount : 8000 // 调整此值以控制星星密度
 
   for (var i = 0; i < numStars; i++) {
     stars.push({

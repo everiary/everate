@@ -35,6 +35,20 @@ export const useConfigStore = defineStore(
         default: true,
         type: 'switch'
       },
+      star_speed: {
+        title: '背景星星的速度(默认为 9)',
+        value: 9,
+        choices: null,
+        default: 9,
+        type: 'input_number'
+      },
+      star_amount: {
+        title: '背景星星的数量(默认 为 8000)',
+        value:  8000,
+        choices: null,
+        default: 8000,
+        type: 'input_number'
+      },
       notification_before_cache_clear: {
         title: '缓存清除前确认',
         value: true,
