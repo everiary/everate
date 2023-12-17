@@ -15,6 +15,9 @@
                         <span v-else-if="item.type == 'input'" class="relative float-right v-mid">
                             <input :id="item.title" v-model="item.value" type="text" />
                         </span>
+                        <span v-else-if="item.type == 'input_number'" class="relative float-right v-mid">
+                            <input :id="item.title" v-model.number="item.value" type="number" />
+                        </span>
                         <span v-else-if="item.type == 'select'" class="relative float-right v-mid">
                             <select v-model="item.value"
                                 class="appearance-none relative text-pink-400 bg-transparent outline-none placeholder-violet-700 rd-0.6vw focus:border-violet-500 block p-2.5">
@@ -28,7 +31,7 @@
                 <div class="flex gap-1vw">
                     <button @click="clearStorage">刷新缓存</button>
                     <button @click="exportConfig">导出配置</button>
-                    <!--<button @click="importConfig">导入配置</button>-->
+                    <button @click="importConfig">导入配置</button>
                 </div>
             </div>
         </formBlock>
@@ -52,10 +55,10 @@
                         class="w-70%" /></span>
                 <div class="flex justify-between w-full">
                     <span>月:
-                        <input v-model.number="data[selected].date.month" placeholder="月" id="dateInputMonth"
+                        <input type="number" v-model.number="data[selected].date.month" placeholder="月" id="dateInputMonth"
                             class="w-40%" /></span>
                     <span>日:
-                        <input v-model.number="data[selected].date.day" placeholder="日" id="dateInputDay"
+                        <input type="number" v-model.number="data[selected].date.day" placeholder="日" id="dateInputDay"
                             class="w-40%" /></span>
                 </div>
                 <br /><button @click="
@@ -73,6 +76,7 @@
             关于<span class="arrow"> ›</span>
         </button>
         <formBlock v-model:visible="aboutVisible">
+            <h1>{{ "Everate" + version }}</h1>
             <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
             <p>还在施工中....</p>
         </formBlock>
@@ -86,12 +90,14 @@ import type { Ref } from "vue";
 import { storeToRefs } from "pinia";
 
 import { useConfigStore } from "@/stores/config";
-const { config } = storeToRefs(useConfigStore());
+const { config } = useConfigStore();
 
 import { useDownCountStore } from "@/stores/downcount";
 const downCountStore = useDownCountStore();
 const { data } = storeToRefs(downCountStore);
 const { clearDate, applyDate } = downCountStore;
+
+import { version } from '../../package.json'
 
 let settingVisible: Ref<boolean> = ref(false);
 let aboutVisible: Ref<boolean> = ref(false);
@@ -99,11 +105,11 @@ let downcountVisible: Ref<boolean> = ref(false);
 let selected: Ref<number> = ref(0);
 
 const clearStorage = () => {
-    let confirmation = true
+    let confirmation = config.notification_before_cache_clear.value
         ? window.confirm("确认清除缓存吗？\n在非开发情况下慎用。")
         : true;
     if (confirmation) {
-        window.localStorage.clear();
+        localStorage.clear();
         location.reload();
         return;
     } else return;
@@ -111,12 +117,11 @@ const clearStorage = () => {
 
 const exportConfig = () => {
     let object = {
-        userConfig: localStorage.getItem("userConfig"),
-        downcount: localStorage.getItem("downcount"),
+        userConfig: config,
+        downcount: data.value,
         time: Date.now(),
     };
-    console.log(object)
-    let export_data = JSON.stringify(object);
+    let export_data = JSON.stringify(object, null, 2);
     let uri = "data:text/plain," + encodeURIComponent(export_data);
     let link = document.createElement("a");
     link.href = uri;
@@ -125,6 +130,35 @@ const exportConfig = () => {
     link.click();
     document.body.removeChild(link);
 };
+
+const importConfig = async () => {
+    let form = document.createElement("input");
+    form.type = "file";
+    form.name = "uploadJSON"
+    form.id = "uploadJSON";
+    form.style.cssText = "display: none"
+    document.body.appendChild(form);
+    form.click();
+
+    const importJSON = document.getElementById("uploadJSON") || { onchange: null }
+    importJSON.onchange = await function () {
+        const file = (this as any).files[0]
+        if (!!file) {
+            const reader = new FileReader()
+            reader.readAsText(file, 'utf-8')
+            reader.onload = function () {
+                try {
+                    let i = JSON.parse(this.result as string)
+                    console.log(i)
+                    document.body.removeChild(form);
+                } catch (err) {
+                    console.log(err)
+                    document.body.removeChild(form);
+                }
+            }
+        }
+    }
+}
 </script>
 
 <style scoped>
