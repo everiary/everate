@@ -46,9 +46,6 @@ devDependencies:
   vite:
     specifier: ^5.0.4
     version: 5.0.4(@types/node@18.18.7)(terser@5.24.0)
-  vite-plugin-compression2:
-    specifier: ^0.11.0
-    version: 0.11.0
   vue-tsc:
     specifier: ^1.8.19
     version: 1.8.22(typescript@5.2.2)
@@ -1726,14 +1723,6 @@ packages:
     dependencies:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
-    dev: true
-
-  /vite-plugin-compression2@0.11.0:
-    resolution: {integrity: sha512-U6oEyRXZD26BynOgD/tStNTbQOLPt96aQNj/gdJTicKVYCQCdlV7QdmSF7VEhSyjiS59pQRhiMBu/uajprxWLA==}
-    dependencies:
-      '@rollup/pluginutils': 5.0.5
-    transitivePeerDependencies:
-      - rollup
     dev: true
 
   /vite@5.0.4(@types/node@18.18.7)(terser@5.24.0):
