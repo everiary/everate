@@ -47,9 +47,10 @@
                 </option>
             </select><br />
 
-            <!--<input :id="'dataInputT' + selected.toString()" v-model="data[selected].title" type="text" /><br />
-            <input :id="'dataInputTs' + selected.toString()" v-model="data[selected].timestamp" type="text" /><br />-->
             <div class="flex flex-col w-25vw gap-1vw">
+                <span>事件:
+                    <input type="text" v-model="data[selected].title_draft" placeholder="会发生什么?" id="dateInputYear"
+                        class="w-70%" /></span>
                 <span>年:
                     <input type="number" v-model.number="data[selected].date.year" placeholder="年" id="dateInputYear"
                         class="w-70%" /></span>
@@ -97,7 +98,7 @@ const downCountStore = useDownCountStore();
 const { data } = storeToRefs(downCountStore);
 const { clearDate, applyDate } = downCountStore;
 
-import { version } from '../../package.json'
+import { version } from '@/../package.json'
 
 let settingVisible: Ref<boolean> = ref(false);
 let aboutVisible: Ref<boolean> = ref(false);
@@ -105,7 +106,7 @@ let downcountVisible: Ref<boolean> = ref(false);
 let selected: Ref<number> = ref(0);
 
 const clearStorage = () => {
-    let confirmation = config.notification_before_cache_clear.value
+    let confirmation = config.notification_before_operation.value
         ? window.confirm("确认清除缓存吗？\n在非开发情况下慎用。")
         : true;
     if (confirmation) {
