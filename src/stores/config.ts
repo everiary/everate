@@ -1,14 +1,5 @@
 import { defineStore } from "pinia";
-import { reactive, ref } from "vue";
-
-/*interface UserConfig {
-  title: string,
-  id: string,
-  value: string | boolean | number | object,
-  default: string | boolean | number | object,
-  type: string,
-  version?: string
-}*/
+import { reactive } from "vue";
 
 export const useConfigStore = defineStore(
   "userConfig",
@@ -49,8 +40,8 @@ export const useConfigStore = defineStore(
         default: 8000,
         type: 'input_number'
       },
-      notification_before_cache_clear: {
-        title: '缓存清除前确认',
+      notification_before_operation: {
+        title: '操作前确认',
         value: true,
         choices: null,
         default: true,

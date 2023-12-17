@@ -1,8 +1,10 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import { useConfigStore } from "./config";
 
 interface Downcount {
   title: string;
+  title_draft: string;
   timestamp: number;
   date: {
     year: number;
@@ -16,6 +18,7 @@ export const useDownCountStore = defineStore(
   () => {
     const downcountEG: Downcount = {
       title: "新年",
+      title_draft: "",
       timestamp: 1704038400000,
       date: {
         year: 2024,
@@ -27,6 +30,7 @@ export const useDownCountStore = defineStore(
       downcountEG,
       {
         title: "喜欢Ta 2年整",
+        title_draft: "",
         timestamp: 1716134400000,
         date: {
           year: 2024,
@@ -36,6 +40,7 @@ export const useDownCountStore = defineStore(
       },
       {
         title: "2025 高考",
+        title_draft: "",
         timestamp: 1749171600000,
         date: {
           year: 2025,
@@ -67,18 +72,27 @@ export const useDownCountStore = defineStore(
           month: month,
           day: day,
         };
+        item.title_draft = "";
       }
       return;
     }
+
     function applyDate() {
-      for (const item of data.value) {
-        item.timestamp = Date.UTC(
-          item.date.year,
-          item.date.month,
-          item.date.day
-        );
+      let { config } = useConfigStore();
+      let confirmation = config.notification_before_operation.value
+        ? window.confirm("确认修改 倒计时 吗？")
+        : true;
+      if (confirmation) {
+        for (const item of data.value) {
+          item.timestamp = Date.UTC(
+            item.date.year,
+            item.date.month - 1,
+            item.date.day
+          );
+          item.title = item.title_draft ? item.title_draft : item.title;
+        }
+        return;
       }
-      return;
     }
 
     return { data, clearDate, applyDate, parseTimestamp };
