@@ -5,21 +5,21 @@
         </button>
         <formBlock v-model:visible="settingVisible">
             <div>
-                <ul class="w-full p-0 line-height-5vh">
+                <ul class="w-full p-0 line-height-6vh">
                     <li v-for="item of config" class="list-none v-mid">
                         <span class="v-mid">{{ item.title + " : " }}</span>
-                        <span v-if="item.type == 'switch'" class="relative float-right mt-1vh">
+                        <span v-if="item.type == 'switch'" class="relative float-right mt-1.8vh">
                             <input class="checkboxInput" :id="item.title" type="checkbox" v-model="item.value" /><label
-                                class="toggleSwitch" :for="item.title"></label>
+                                class="toggleSwitch" :for="item.title" :id="item.title+'lable'"></label>
                         </span>
                         <span v-else-if="item.type == 'input'" class="relative float-right v-mid">
-                            <input :id="item.title" v-model="item.value" type="text" />
+                            <input :id="item.title" v-model="item.value" type="text" class="textInput"/>
                         </span>
                         <span v-else-if="item.type == 'input_number'" class="relative float-right v-mid">
-                            <input :id="item.title" v-model.number="item.value" type="number" />
+                            <input :id="item.title" v-model.number="item.value" type="number" class="numberInput"/>
                         </span>
                         <span v-else-if="item.type == 'select'" class="relative float-right v-mid">
-                            <select v-model="item.value"
+                            <select :id="item.title+'select'" v-model="item.value"
                                 class="appearance-none relative text-pink-400 bg-transparent outline-none placeholder-violet-700 rd-0.6vw focus:border-violet-500 block p-2.5">
                                 <option v-for="optionalItem of item.choices" :value="optionalItem">
                                     {{ optionalItem }}
@@ -40,7 +40,7 @@
             倒数日<span class="arrow"> ›</span>
         </button>
         <formBlock v-model:visible="downcountVisible">
-            <select v-model="selected"
+            <select id="downcountSelect" v-model="selected"
                 class="appearance-none relative text-pink-400 bg-transparent outline-none placeholder-violet-700 rd-0.6vw focus:border-violet-500 block w-40% p-2.5">
                 <option v-for="(item, index) of data" :value="index">
                     {{ item.title }}
@@ -49,7 +49,7 @@
 
             <div class="flex flex-col w-25vw gap-1vw">
                 <span>事件:
-                    <input type="text" v-model="data[selected].title_draft" placeholder="会发生什么?" id="dateInputYear"
+                    <input type="text" v-model="data[selected].title_draft" placeholder="会发生什么?" id="dateInputTitle"
                         class="w-70%" /></span>
                 <span>年:
                     <input type="number" v-model.number="data[selected].date.year" placeholder="年" id="dateInputYear"
@@ -79,7 +79,9 @@
         <formBlock v-model:visible="aboutVisible">
             <h1>{{ "Everate" + version }}</h1>
             <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-            <p>还在施工中....</p>
+            <p>👏 Hi! 我是 wemsx，这个网站的开发者。这是我首次开发一个完整的 spa，显然会有许多不足。如果你发现了什么值得改进的地方，欢迎通过你能使用的任何渠道联系我。如果你觉得这个启动页还不错，也希望你能把它分享给更多人。</p>
+            <p>以下是我的出没的地方。如果你有二次开发的需要，希望你能保留下面的段落。</p>
+            <p>还在装修中...</p>
         </formBlock>
     </div>
 </template>
@@ -165,7 +167,9 @@ const importConfig = async () => {
 <style scoped>
 #dateInputMonth,
 #dateInputDay,
-#dateInputYear {
+#dateInputYear,
+.textInput,
+.numberInput  {
     height: 4vh;
     background-color: #292929;
     border-radius: 2vw;
@@ -176,6 +180,7 @@ const importConfig = async () => {
     color: rgb(212, 212, 212);
     transition-duration: 0.2s;
 }
+
 
 #dateInputYear:focus,
 #dateInputMonth:focus,

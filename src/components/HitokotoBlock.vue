@@ -5,7 +5,6 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-import { storeToRefs } from 'pinia'
 import { useConfigStore } from '@/stores/config';
 const { config } = useConfigStore()
 
