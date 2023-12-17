@@ -1,55 +1,34 @@
 <template>
     <div class="downcountarea absolute w-full flexCenter color-#fff">
         <ul>
-            <li v-for="item of data" class="font-size-1.5vw list-none text-center text-left">{{ item.title }}还有<span class="dateNum relative font-size-3vw">{{ ' ' + computeDatePlus(item.timestamp) + ' ' }}</span>天
+            <li v-for="item of data" class="font-size-1.5vw list-none text-center text-left">
+                {{ item.title }}
+                <span v-if="computeDatePlus(item.timestamp) > 0">还有<span class="dateNum relative font-size-3vw">{{ ' ' + computeDatePlus(item.timestamp) + ' ' }}</span>天</span>
+                <span v-if="computeDatePlus(item.timestamp) == 0"><span class="dateNum relative font-size-3vw">{{ ' ' + '就是今天' + ' ' }}</span></span>
+                <span v-if="computeDatePlus(item.timestamp) < 0">已经过了<span class="dateNum relative font-size-3vw">{{ ' ' + -computeDatePlus(item.timestamp) + ' ' }}</span>天</span>
             </li>
         </ul>
     </div>
 </template>
 
-<script setup lang="js">
-import { ref } from 'vue'
+<script setup lang="ts">
 import { storeToRefs } from 'pinia'
 
-import { useDownCountStore } from '../stores/downcount.ts';
+import { useDownCountStore } from '../stores/downcount';
 const DownCountStore = useDownCountStore()
 const { data } = storeToRefs(DownCountStore)
 
-const duration = (endDate) => {
+const duration = (endDate:number) => {
     var startDate = Date.now()
-    if (startDate > endDate) {
-        return 0;
-    }
     if (startDate == endDate) {
-        return 1;
+        return 0;
     }
     var days = (endDate - startDate) / (1 * 24 * 60 * 60 * 1000);
     return days | 0;
 }
 
-/*const computeDate = (item) => {
-    if (item.m != 0 && item.y != 0) {
-        let date = new Date(item.y, item.m - 1, item.d)
-        return how(date)
-    }
-    else if (item.m = 0) {
-        let current = new Date.getDate()
-        return how(new Date(item.y, (item.d >= current) ? item.m - 1 : new Date.getMonth(), item.d))
-    }
-    else {
-        let currentDate = new Date.getDate()
-        let currentMonth = new Date.getMonth() + 1
-        //获取现实中的月份与日期进行比较。若现实月份大/日期大则把目标设为原目标日期。反之则自动加一年。
-        if (item.m > currentMonth) {
-            return how(new Date(item.y, month, item.d))
-        } else if (item.m == currentMonth) {
-            let isNextYear = (item.d >= currentDate)
-            return how(new Date(isNextYear ? item.m - 1 : new Date.getMonth(), item.m, item.d))
-        } else return how(new Date(item.y, item.m - 1, item.d))
-    }
-}*/
 
-const computeDatePlus = (timestamp) => {
+const computeDatePlus = (timestamp:number) => {
     return duration(timestamp)
 }
 </script>
