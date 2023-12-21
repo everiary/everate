@@ -3,6 +3,7 @@ module.exports = {
     { type: 'feat', section: '✨ Features | 新功能' },
     { type: 'fix', section: '🐛 Bug Fixes | Bug 修复' },
     { type: 'init', section: '🎉 Init | 初始化' },
+    { type: 'type', section: '📅 Types | 类型' },
     { type: 'docs', section: '✏️ Documentation | 文档' },
     { type: 'style', section: '💄 Styles | 风格' },
     { type: 'refactor', section: '♻️ Code Refactoring | 代码重构' },
