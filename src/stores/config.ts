@@ -1,10 +1,20 @@
 import { defineStore } from "pinia";
 import { reactive } from "vue";
 
+interface Config {
+  [propName: string]: {
+    title: string,
+    value: string | boolean | number,
+    choices?: string[] | null,
+    default: string | boolean | number,
+    type: string
+  }
+}
+
 export const useConfigStore = defineStore(
   "userConfig",
   () => {
-    const config = reactive({
+    const config:Config = reactive({
       username: {
         title: '用户名',
         value: 'wemsx',
