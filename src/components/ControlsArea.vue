@@ -152,7 +152,13 @@ const importConfig = async () => {
             reader.onload = function () {
                 try {
                     let i = JSON.parse(this.result as string)
-                    console.log(i)
+                    let confirmation = window.confirm("确认导入配置吗？\n会导致当前配置被覆盖。")
+                    if (confirmation) {
+                        for (let item in i.userConfig){
+                            config[item].value = i.userConfig[item].value
+                        }
+                        data.value = i.downcount;
+                    }
                     document.body.removeChild(form);
                 } catch (err) {
                     console.log(err)
