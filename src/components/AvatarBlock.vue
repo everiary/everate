@@ -5,8 +5,7 @@
 
 <script setup lang="ts">
 
-import { storeToRefs } from 'pinia'
 import { useConfigStore } from '@/stores/config'
-const { config } = storeToRefs(useConfigStore())
+const { config } = useConfigStore()
 
 </script>
