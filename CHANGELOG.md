@@ -2,6 +2,71 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.1-beta.7](https://gitee.com/everiary/everate/compare/v0.0.1-beta.6...v0.0.1-beta.7) (2023-12-23)
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 升级调整依赖 ([b05d1a0](https://gitee.com/everiary/everate/commit/b05d1a0ac7f1ce61a8666d4c37b03da096de1acd))
+
+
+### ✏️ Documentation | 文档
+
+* 修改了文档 ([179d573](https://gitee.com/everiary/everate/commit/179d573dbb7b7182a2bb3a286c7f64fe8e2f6a34))
+* 修改文档 ([84a90b5](https://gitee.com/everiary/everate/commit/84a90b5b905f6fc35c46a578e98b7edaa97b7c42))
+
+
+### 📅 Types | 类型
+
+* 为 config 标注了类型 ([d2c384b](https://gitee.com/everiary/everate/commit/d2c384b027a3525a74a251768d8cf7e2cf8c1423))
+* 再次重写 store 格式 ([6c81569](https://gitee.com/everiary/everate/commit/6c81569258b0ea2b3c49a2a986eabe5c84026ff1))
+
+
+### 👻 Hard to Explain | 杂项
+
+* 常规修改 ([d87269c](https://gitee.com/everiary/everate/commit/d87269c71af90fe37b72e4ae2eefb103b3403dd1))
+* 调整 .versionrc.cjs(未包含在仓库中) ([4e12ca3](https://gitee.com/everiary/everate/commit/4e12ca3ade098c77e122008a538d5fe98e54babe))
+* 删除注释 ([aff2580](https://gitee.com/everiary/everate/commit/aff2580e671e8096727690c906c2211b155413ec))
+* 删了点注释. ([3450838](https://gitee.com/everiary/everate/commit/3450838760b26922eb8a74d1abf3f409bd51740b))
+* SEO 调整 ([2624cb9](https://gitee.com/everiary/everate/commit/2624cb9f44a5e9754c7f5fefc1fb742ee8d8185b))
+
+
+### ✨ Features | 新功能
+
+* 完善了导入导出的模板,但还未实装导入功能 ([f3ef1ed](https://gitee.com/everiary/everate/commit/f3ef1edf4c5756a8e4797700046385ecd78c7a8f))
+* 优化配置页样式,支持滚动 ([ce45ae3](https://gitee.com/everiary/everate/commit/ce45ae33285d82587895953f81c53033a720ea45))
+* 正式实装导入功能 ([8ecc289](https://gitee.com/everiary/everate/commit/8ecc289b644096820b53757eaf45658505c5a85f))
+* 支持显示过去时间 ([d10f978](https://gitee.com/everiary/everate/commit/d10f978faa38f4eee12b7a8a0a36edebf4f8e774))
+* 支持修改背景星星生成部分参数 ([86f81b3](https://gitee.com/everiary/everate/commit/86f81b3c6f05cbe08e9ce2b3b5205f2e23ef3972))
+* EXPERIMENTAL 添加对使用 bing 作为壁纸的支持. ([38df29d](https://gitee.com/everiary/everate/commit/38df29d886492a8fff1dba626d9075408fca0957))
+
+
+### 📦‍ Build System | 打包构建
+
+* 构建5Yu4iHa4 ([109770b](https://gitee.com/everiary/everate/commit/109770b92c52e8c2cddfd3a998e536d6d0e962a6))
+* 构建ewX1UExk ([232ebb1](https://gitee.com/everiary/everate/commit/232ebb110ee827468c6822271be37c6b88cb7eb6))
+* 构建mrwldM4G ([da78ea1](https://gitee.com/everiary/everate/commit/da78ea145a580f04f1caeef302fec9ef6fad73d6))
+* 构建sqbcNfaF ([4c8ae37](https://gitee.com/everiary/everate/commit/4c8ae37e34f6bf15a358b682279508d30b83bd3d))
+* 构建VRaZU0ZR ([2cb7b2c](https://gitee.com/everiary/everate/commit/2cb7b2c9f30178cc30590c69b8ca72e6e3b24a6c))
+* 构建xCr44ljb ([183db62](https://gitee.com/everiary/everate/commit/183db62b536fc9d92e5900f07249df66b33a2f90))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 抽离了背景函数 ([7a75b38](https://gitee.com/everiary/everate/commit/7a75b3882d4383e988161cdc67f3db9136b42bf2))
+* 更换了 bing api ([6da7930](https://gitee.com/everiary/everate/commit/6da7930935450717bc2eae40412c758b3e3a1c67))
+* 新增修改倒计时前的提醒 ([8bf0362](https://gitee.com/everiary/everate/commit/8bf0362d97f04461b4534b36107f753e341c5e8a))
+* 修复包括表单 id 在内的部分问题 ([fe07a99](https://gitee.com/everiary/everate/commit/fe07a99771c4bb6ed527486101567371783ceec5))
+* 修复了标题修改响应式‘过于及时’的问题 ([0b5fab8](https://gitee.com/everiary/everate/commit/0b5fab8dacf4f2346b440fbbf7cd33d447325cec))
+* 修复了输入样式丢失的问题 ([d286fb4](https://gitee.com/everiary/everate/commit/d286fb44185cc27cb93c96cb7f9cc8e60dac6d97))
+
+
+### 💄 Styles | 风格
+
+* 改用 props 接受参数来调整 form 高度 ([85ffb40](https://gitee.com/everiary/everate/commit/85ffb4042a40d942534a2eece0599c704eee4197))
+* 改用统一的 form ,又写了一些关于 ([2c6ee6f](https://gitee.com/everiary/everate/commit/2c6ee6f6ff8520b4ed3536d61141e2a753a5df68))
+* 新增了版权信息 ([c355115](https://gitee.com/everiary/everate/commit/c355115073100059dc5e9d70ebb39499e5ab4bc6))
+
 ### [0.0.1-beta.6](https://github.com/everiary/everate/compare/v0.0.1-beta.5...v0.0.1-beta.6) (2023-12-16)
 
 
