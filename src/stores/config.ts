@@ -50,7 +50,7 @@ export const useConfigStore = defineStore(
           type: 'input_number'
         },
         enable_bing_background: {
-          title: '使用 bing 壁纸背景',
+          title: '使用 bing 壁纸背景(美区)',
           value: false,
           default: false,
           type: 'switch'

@@ -8,7 +8,7 @@ drawStars(config.layout.star_speed.value, config.layout.star_amount.value);
 </script>
 
 <template>
-    <img v-if="config.layout.enable_bing_background.value" src="https://bing.icodeq.com/" />
+    <img v-if="config.layout.enable_bing_background.value" src="https://api.paugram.com/bing" />
     <CalendarArea />
     <OperateArea />
 </template>
