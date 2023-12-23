@@ -174,6 +174,7 @@ const importConfig = async () => {
 #dateInputMonth,
 #dateInputDay,
 #dateInputYear,
+#dateInputTitle,
 .textInput,
 .numberInput  {
     height: 4vh;
@@ -190,7 +191,8 @@ const importConfig = async () => {
 
 #dateInputYear:focus,
 #dateInputMonth:focus,
-#dateInputDay:focus {
+#dateInputDay:focus,
+#dateInputYear:focus {
     border: 2px solid rgb(152, 88, 255);
     transition-duration: 0.2s;
 }
