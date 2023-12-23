@@ -5,6 +5,7 @@
             <div class="whito w-full h-25vh"><HitokotoBlock /></div>
             <div class="downcount relative w-full h-35vh -mt-5vh"><DowncountArea /></div>
             <div class="controls relative w-full h-10vh"><ControlsArea /></div>
+            <span class="w-full text-center color-#fff ml-1.5vw mb-2vh">Copyright © wemsx since 2024</span>
         </div>
     </div>
 </template>
