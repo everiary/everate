@@ -3,13 +3,10 @@
         <div class="formMain fixed left-0 top-0 w-100vw h-100vh flexCenter " v-show="visible">
             <div class="formClass fixed left-0 top-0 w-100vw h-100vh flexCenter mask -z-1"
                 @click="$emit('update:visible', false), clearDate()"></div>
-            <div class="formFramework">
+            <div :class="(big) ? ' h-80vh' : ''" class="formFramework of-y-scroll" >
                 <div class="formBody">
                     <slot />
                 </div>
-                <!--<div class="formFooter flex items-center justify-end h-10vh">
-                    <button @click="$emit('update:visible', false)">cancel</button>
-                </div>-->
             </div>
         </div>
     </Teleport>
@@ -19,7 +16,10 @@
 import { useDownCountStore } from '@/stores/downcount'
 const { clearDate } = useDownCountStore()
 
-defineProps(['visible'])
+defineProps<{
+  visible: boolean
+  big: boolean
+}>()
 defineEmits(['update:visible'])
 </script>
 
@@ -48,6 +48,10 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
     border-radius: 1.6vw;
     background-size: 200% 100%;
     animation: gradient 5s ease infinite;
+}
+
+.formFramework::-webkit-scrollbar {
+    display: none;
 }
 
 @keyframes gradient {
