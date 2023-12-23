@@ -3,7 +3,7 @@
         <button @click="settingVisible = !settingVisible" class="settings">
             设置<span class="arrow"> ›</span>
         </button>
-        <formBlockBig v-model:visible="settingVisible">
+        <formBlock v-model:visible="settingVisible" :big="true">
             <div>
                 <h2>功能配置</h2>
                 <ul class="w-full p-0" v-for="(key, conf) of config">
@@ -37,12 +37,12 @@
                     <button @click="importConfig">导入配置</button>
                 </div><br /><br />
             </div>
-        </formBlockBig>
+        </formBlock>
 
         <button @click="downcountVisible = !downcountVisible">
             倒数日<span class="arrow"> ›</span>
         </button>
-        <formBlock v-model:visible="downcountVisible">
+        <formBlock v-model:visible="downcountVisible" :big="false">
             <select id="downcountSelect" v-model="selected"
                 class="appearance-none relative text-pink-400 bg-transparent outline-none placeholder-violet-700 rd-0.6vw focus:border-violet-500 block w-40% p-2.5">
                 <option v-for="(item, index) of data" :value="index">
@@ -79,20 +79,32 @@
         <button v-if="config.layout.enable_about.value" @click="aboutVisible = !aboutVisible">
             关于<span class="arrow"> ›</span>
         </button>
-        <formBlockBig v-model:visible="aboutVisible">
+        <formBlock v-model:visible="aboutVisible" :big="true">
             <h1>{{ "Everate" + version }}</h1>
             <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
             <p>👏 Hi! 我是 wemsx，这个网站的开发者。这是我首次开发一个完整的
                 spa，显然会有许多不足。如果你发现了什么值得改进的地方，欢迎通过你能使用的任何渠道联系我。如果你觉得这个启动页还不错，也希望你能把它分享给更多人。</p>
+            <p>
+                本项目也使用了一些来自社区的工具：
+                <ul class="list-none p-0">
+                <li>星空背景: <a href="https://github.com/sun0225SUN/home">@sun0225SUN</a></li>
+                <li>Bing 壁纸 api: <a href="https://api.paugram.com/help/bing">保罗</a></li>
+                <li>很多样式: <a href="https://uiverse.io/">uiverse</a></li>
+                <li>Vite + Vue + Pinia + UnoCSS</li>
+                <li></li>
+            </ul>
+            </p>
             <p>以下是我的出没的地方。如果你有二次开发的需要，希望你能保留下面的段落。</p>
+            <a href="https://github.com/wemsx"> 个人 Github @wemsx </a><br/>
+            <a href="https://github.com/everiary/everate"> 项目 Github @everiary/everate </a>
+            <a href="https://space.bilibili.com/628990477"> 我的 B 站空间 </a>
             <p>还在装修中...</p>
-        </formBlockBig>
+        </formBlock>
     </div>
 </template>
 
 <script setup lang="ts">
 import formBlock from "@/components/form/index.vue";
-import formBlockBig from "@/components/form/bigger.vue";
 import { ref } from "vue";
 import type { Ref } from "vue";
 import { storeToRefs } from "pinia";
