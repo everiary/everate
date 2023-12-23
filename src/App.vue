@@ -4,13 +4,11 @@ import OperateArea from "./components/OperateArea.vue";
 import drawStars from "./scripts/star.esm";
 import { useConfigStore } from "@/stores/config";
 const { config } = useConfigStore();
-drawStars(config.star_speed.value, config.star_amount.value);
-
-
+drawStars(config.layout.star_speed.value, config.layout.star_amount.value);
 </script>
 
 <template>
-    <img v-if="config.enable_bing_background.value" src="https://bing.icodeq.com/" />
+    <img v-if="config.layout.enable_bing_background.value" src="https://bing.icodeq.com/" />
     <CalendarArea />
     <OperateArea />
 </template>

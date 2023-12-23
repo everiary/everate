@@ -11,7 +11,7 @@ const { config } = useConfigStore()
 const hito = ref('')
 
 const getHito = () => {
-    fetch(`https://v1.hitokoto.cn?c=${config.hitokoto_type.value}`)
+    fetch(`https://v1.hitokoto.cn?c=${config.functions.hitokoto_type.value}`)
         .then(response => response.json())
         .then(data => {
             hito.value = data.hitokoto
