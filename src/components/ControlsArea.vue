@@ -96,7 +96,7 @@
             </p>
             <p>以下是我的出没的地方。如果你有二次开发的需要，希望你能保留下面的段落。</p>
             <a href="https://github.com/wemsx"> 个人 Github @wemsx </a><br/>
-            <a href="https://github.com/everiary/everate"> 项目 Github @everiary/everate </a>
+            <a href="https://github.com/everiary/everate"> 项目 Github @everiary/everate </a><br/>
             <a href="https://space.bilibili.com/628990477"> 我的 B 站空间 </a>
             <p>还在装修中...</p>
         </formBlock>
@@ -181,9 +181,11 @@ const importConfig = async () => {
                     let i = JSON.parse(this.result as string)
                     let confirmation = window.confirm("确认导入配置吗？\n会导致当前配置被覆盖。")
                     if (confirmation) {
-                        /*for (let item in i.userConfig){
-                            config[item].value = i.userConfig[item].value
-                        }*/
+                        for (let item in i.userConfig){
+                            for (let k in i.userConfig[item]){
+                                config[item][k].value = i.userConfig[item][k].value
+                            }
+                        }
                         data.value = i.downcount;
                     }
                     document.body.removeChild(form);
