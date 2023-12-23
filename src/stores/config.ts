@@ -56,6 +56,12 @@ export const useConfigStore = defineStore(
         choices: null,
         default: true,
         type: 'switch'
+      },
+      enable_bing_background: {
+        title: '使用 bing 壁纸背景',
+        value: false,
+        default: false,
+        type: 'switch'
       }
     })
     return { config };

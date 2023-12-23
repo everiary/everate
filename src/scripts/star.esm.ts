@@ -111,4 +111,4 @@ let drawStars: any = (speed?: number, amount?: number) => {
   };
 };
 
-export { drawStars };
+export default drawStars;
