@@ -2,24 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.1-beta.8](https://gitee.com/everiary/everate/compare/v0.0.1-beta.7...v0.0.1-beta.8) (2023-12-23)
+### [0.0.1-beta.8](https://github.com/everiary/everate/compare/v0.0.1-beta.7...v0.0.1-beta.8) (2023-12-23)
 
 
 ### ✏️ Documentation | 文档
 
-* 修改文档 ([b074062](https://gitee.com/everiary/everate/commit/b074062626821c9684715a8a037e0e6167a66137))
+* 修改文档 ([b074062](https://github.com/everiary/everate/commit/b074062626821c9684715a8a037e0e6167a66137))
 
 
 ### 🐛 Bug Fixes | Bug 修复
 
-* 紧急修复多个严重 Bug ([7d233c6](https://gitee.com/everiary/everate/commit/7d233c6c2f6dd9e00cdd45bdbf964d66819a4447))
-* 修复导入配置问题 ([a94dd20](https://gitee.com/everiary/everate/commit/a94dd2034691caba4776159b9b3459eea76f8114))
+* 紧急修复多个严重 Bug ([7d233c6](https://github.com/everiary/everate/commit/7d233c6c2f6dd9e00cdd45bdbf964d66819a4447))
+* 修复导入配置问题 ([a94dd20](https://github.com/everiary/everate/commit/a94dd2034691caba4776159b9b3459eea76f8114))
 
 
 ### 📦‍ Build System | 打包构建
 
-* 构建0LZS-v5P ([ee37ed4](https://gitee.com/everiary/everate/commit/ee37ed4d433481f990f663cb22c928ae2793563c))
-* 构建Yoo2iUfw ([874de72](https://gitee.com/everiary/everate/commit/874de720743971ce4302da0c99ea6ca3e6e29984))
+* 构建0LZS-v5P ([ee37ed4](https://github.com/everiary/everate/commit/ee37ed4d433481f990f663cb22c928ae2793563c))
+* 构建Yoo2iUfw ([874de72](https://github.com/everiary/everate/commit/874de720743971ce4302da0c99ea6ca3e6e29984))
 
 ### [0.0.1-beta.7](https://github.com/everiary/everate/compare/v0.0.1-beta.6...v0.0.1-beta.7) (2023-12-23)
 
