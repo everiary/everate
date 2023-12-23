@@ -6,9 +6,9 @@
         <formBlock v-model:visible="settingVisible" :big="true">
             <div>
                 <h2>功能配置</h2>
-                <ul class="w-full p-0" v-for="(key, conf) of config">
-                    <h3>{{ configTitle[conf] }}</h3>
-                    <li v-for="item of config[conf]" class="listItem list-none v-mid line-height-6vh rd-1vw">
+                <ul class="w-full p-0" v-for="(conf, key) of config">
+                    <h3>{{ configTitle[key] }}</h3>
+                    <li v-for="item in config[key]" class="listItem list-none v-mid line-height-6vh rd-1vw">
                         <span class="v-mid">{{ item.title + " : " }}</span>
                         <span v-if="item.type == 'switch'" class="relative float-right mt-1.8vh">
                             <input class="checkboxInput" :id="item.title" type="checkbox" v-model="item.value" /><label
@@ -35,6 +35,7 @@
                     <button @click="clearStorage">刷新缓存</button>
                     <button @click="exportConfig">导出配置</button>
                     <button @click="importConfig">导入配置</button>
+                    <button @click="fixImport">修复导入</button>
                 </div><br /><br />
             </div>
         </formBlock>
@@ -45,31 +46,32 @@
         <formBlock v-model:visible="downcountVisible" :big="false">
             <select id="downcountSelect" v-model="selected"
                 class="appearance-none relative text-pink-400 bg-transparent outline-none placeholder-violet-700 rd-0.6vw focus:border-violet-500 block w-40% p-2.5">
-                <option v-for="(item, index) of data" :value="index">
+                <option v-for="(item, index) of downcount" :value="index">
                     {{ item.title }}
                 </option>
             </select><br />
 
             <div class="flex flex-col w-25vw gap-1vw">
                 <span>事件:
-                    <input type="text" v-model="data[selected].title_draft" placeholder="会发生什么?" id="dateInputTitle"
+                    <input type="text" v-model="downcount[selected].title_draft"
+                        :placeholder="'除了' + downcount[selected].title + '还会发生什么?'" id="dateInputTitle"
                         class="w-70%" /></span>
                 <span>年:
-                    <input type="number" v-model.number="data[selected].date.year" placeholder="年" id="dateInputYear"
+                    <input type="number" v-model.number="downcount[selected].date.year" placeholder="年" id="dateInputYear"
                         class="w-70%" /></span>
                 <div class="flex justify-between w-full">
                     <span>月:
-                        <input type="number" v-model.number="data[selected].date.month" placeholder="月" id="dateInputMonth"
-                            class="w-40%" /></span>
+                        <input type="number" v-model.number="downcount[selected].date.month" placeholder="月"
+                            id="dateInputMonth" class="w-40%" /></span>
                     <span>日:
-                        <input type="number" v-model.number="data[selected].date.day" placeholder="日" id="dateInputDay"
+                        <input type="number" v-model.number="downcount[selected].date.day" placeholder="日" id="dateInputDay"
                             class="w-40%" /></span>
                 </div>
                 <br /><button @click="
                     applyDate(),
                     clearDate(),
-                    (downcountVisible = !downcountVisible),
-                    (selected = 0)
+                    downcountVisible = !downcountVisible,
+                    selected = 0
                     ">
                     应用<span class="arrow"> ›</span>
                 </button>
@@ -86,7 +88,7 @@
                 spa，显然会有许多不足。如果你发现了什么值得改进的地方，欢迎通过你能使用的任何渠道联系我。如果你觉得这个启动页还不错，也希望你能把它分享给更多人。</p>
             <p>
                 本项目也使用了一些来自社区的工具：
-                <ul class="list-none p-0">
+            <ul class="list-none p-0">
                 <li>星空背景: <a href="https://github.com/sun0225SUN/home">@sun0225SUN</a></li>
                 <li>Bing 壁纸 api: <a href="https://api.paugram.com/help/bing">保罗</a></li>
                 <li>很多样式: <a href="https://uiverse.io/">uiverse</a></li>
@@ -95,8 +97,8 @@
             </ul>
             </p>
             <p>以下是我的出没的地方。如果你有二次开发的需要，希望你能保留下面的段落。</p>
-            <a href="https://github.com/wemsx"> 个人 Github @wemsx </a><br/>
-            <a href="https://github.com/everiary/everate"> 项目 Github @everiary/everate </a><br/>
+            <a href="https://github.com/wemsx"> 个人 Github @wemsx </a><br />
+            <a href="https://github.com/everiary/everate"> 项目 Github @everiary/everate </a><br />
             <a href="https://space.bilibili.com/628990477"> 我的 B 站空间 </a>
             <p>还在装修中...</p>
         </formBlock>
@@ -111,10 +113,9 @@ import { storeToRefs } from "pinia";
 
 import { useConfigStore } from "@/stores/config";
 const { config } = useConfigStore();
-
 import { useDownCountStore } from "@/stores/downcount";
 const downCountStore = useDownCountStore();
-const { data } = storeToRefs(downCountStore);
+const { downcount } = storeToRefs(downCountStore);
 const { clearDate, applyDate } = downCountStore;
 
 import { version } from '@/../package.json'
@@ -144,11 +145,10 @@ const clearStorage = () => {
         return;
     } else return;
 };
-
 const exportConfig = () => {
     let object = {
         userConfig: config,
-        downcount: data.value,
+        downcount: downcount.value,
         time: Date.now(),
     };
     let export_data = JSON.stringify(object, null, 2);
@@ -161,42 +161,53 @@ const exportConfig = () => {
     document.body.removeChild(link);
 };
 
+const fixImport = () => {
+    for (let i = document.body.childNodes.length; i > 0; i++) {
+        if (!document.getElementById("uploadJSON")) { break; }
+        let form = <HTMLElement>document.getElementById("uploadJSON");
+        document.body.removeChild(form);
+    }
+}
+
 const importConfig = async () => {
     let form = document.createElement("input");
     form.type = "file";
-    form.name = "uploadJSON"
+    form.name = "uploadJSON";
     form.id = "uploadJSON";
-    form.style.cssText = "display: none"
+    form.style.cssText = "display: none";
     document.body.appendChild(form);
     form.click();
 
-    const importJSON = document.getElementById("uploadJSON") || { onchange: null }
+    const importJSON = document.getElementById("uploadJSON") || {
+        onchange: null,
+    };
     importJSON.onchange = await function () {
-        const file = (this as any).files[0]
+        const file = (this as any).files[0];
         if (!!file) {
-            const reader = new FileReader()
-            reader.readAsText(file, 'utf-8')
+            const reader = new FileReader();
+            reader.readAsText(file, "utf-8");
             reader.onload = function () {
                 try {
-                    let i = JSON.parse(this.result as string)
+                    let i = JSON.parse(this.result as string);
                     let confirmation = window.confirm("确认导入配置吗？\n会导致当前配置被覆盖。")
                     if (confirmation) {
-                        for (let item in i.userConfig){
-                            for (let k in i.userConfig[item]){
-                                config[item][k].value = i.userConfig[item][k].value
+                        for (let item in i.userConfig) {
+                            for (let k in i.userConfig[item]) {
+                                config[item][k].value = i.userConfig[item][k].value;
                             }
                         }
-                        data.value = i.downcount;
+                        downcount.value = i.downcount;
                     }
                     document.body.removeChild(form);
+                    location.reload();
                 } catch (err) {
-                    console.log(err)
+                    console.log(err);
                     document.body.removeChild(form);
                 }
-            }
+            };
         }
-    }
-}
+    };
+};
 </script>
 
 <style scoped>
@@ -279,7 +290,7 @@ button:active {
 .toggleSwitch::after {
     content: "";
     position: absolute;
-    height: 2.5vh;
+    height: 2.6vh;
     width: 1.5vw;
     left: 0;
     background-color: rgb(41, 41, 41);

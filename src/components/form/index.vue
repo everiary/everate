@@ -1,6 +1,6 @@
 <template>
     <Teleport to="#app">
-        <div class="formMain fixed left-0 top-0 w-100vw h-100vh flexCenter " v-show="visible">
+        <div class="formMain fixed left-0 top-0 w-100vw h-100vh flexCenter" v-show="visible">
             <div class="formClass fixed left-0 top-0 w-100vw h-100vh flexCenter mask -z-1"
                 @click="$emit('update:visible', false), clearDate()"></div>
             <div :class="(big) ? ' h-80vh' : ''" class="formFramework of-y-scroll" >
@@ -16,10 +16,7 @@
 import { useDownCountStore } from '@/stores/downcount'
 const { clearDate } = useDownCountStore()
 
-defineProps<{
-  visible: boolean
-  big: boolean
-}>()
+defineProps(['visible', 'big'])
 defineEmits(['update:visible'])
 </script>
 

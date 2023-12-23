@@ -9,9 +9,21 @@ drawStars(config.layout.star_speed.value, config.layout.star_amount.value);
 
 <template>
     <img v-if="config.layout.enable_bing_background.value" src="https://api.paugram.com/bing" />
-    <CalendarArea />
+    <div id="blackBlock" v-if="config.layout.enable_bing_background.value"></div>
+    <CalendarArea v-if="!config.layout.enable_bing_background.value" />
     <OperateArea />
 </template>
+
+<style scoped>
+#blackBlock{
+    height: 100%;
+    width: 20vw;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    z-index: 0;
+}
+</style>
 
 <style>
 #app {

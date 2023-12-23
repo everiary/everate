@@ -26,7 +26,7 @@ export const useDownCountStore = defineStore(
         day: 1,
       },
     };
-    const data = ref([
+    const downcount = ref([
       downcountEG,
       {
         title: "喜欢Ta 2年整",
@@ -63,7 +63,7 @@ export const useDownCountStore = defineStore(
     }
 
     function clearDate() {
-      for (const item of data.value) {
+      for (const item of downcount.value) {
         let { year, month, day, hour, minute, second } = parseTimestamp(
           item.timestamp
         );
@@ -79,11 +79,11 @@ export const useDownCountStore = defineStore(
 
     function applyDate() {
       let { config } = useConfigStore();
-      let confirmation = config.notification_before_operation.value
+      let confirmation = config.safety.notification_before_operation.value
         ? window.confirm("确认修改 倒计时 吗？")
         : true;
       if (confirmation) {
-        for (const item of data.value) {
+        for (const item of downcount.value) {
           item.timestamp = Date.UTC(
             item.date.year,
             item.date.month - 1,
@@ -95,7 +95,7 @@ export const useDownCountStore = defineStore(
       }
     }
 
-    return { data, clearDate, applyDate, parseTimestamp };
+    return { downcount, clearDate, applyDate, parseTimestamp };
   },
   {
     persist: true,
