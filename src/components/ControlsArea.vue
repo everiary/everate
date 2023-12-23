@@ -3,24 +3,26 @@
         <button @click="settingVisible = !settingVisible" class="settings">
             设置<span class="arrow"> ›</span>
         </button>
-        <formBlock v-model:visible="settingVisible">
+        <formBlockBig v-model:visible="settingVisible">
             <div>
-                <ul class="w-full p-0 line-height-6vh">
-                    <li v-for="item of config" class="list-none v-mid">
+                <h2>功能配置</h2>
+                <ul class="w-full p-0" v-for="(key, conf) of config">
+                    <h3>{{ configTitle[conf] }}</h3>
+                    <li v-for="item of config[conf]" class="listItem list-none v-mid line-height-6vh rd-1vw">
                         <span class="v-mid">{{ item.title + " : " }}</span>
                         <span v-if="item.type == 'switch'" class="relative float-right mt-1.8vh">
                             <input class="checkboxInput" :id="item.title" type="checkbox" v-model="item.value" /><label
-                                class="toggleSwitch" :for="item.title" :id="item.title+'lable'"></label>
+                                class="toggleSwitch" :for="item.title" :id="item.title + 'lable'"></label>
                         </span>
                         <span v-else-if="item.type == 'input'" class="relative float-right v-mid">
-                            <input :id="item.title" v-model="item.value" type="text" class="textInput"/>
+                            <input :id="item.title" v-model="item.value" type="text" class="textInput" />
                         </span>
                         <span v-else-if="item.type == 'input_number'" class="relative float-right v-mid">
-                            <input :id="item.title" v-model.number="item.value" type="number" class="numberInput"/>
+                            <input :id="item.title" v-model.number="item.value" type="number" class="numberInput" />
                         </span>
                         <span v-else-if="item.type == 'select'" class="relative float-right v-mid">
-                            <select :id="item.title+'select'" v-model="item.value"
-                                class="appearance-none relative text-pink-400 bg-transparent outline-none placeholder-violet-700 rd-0.6vw focus:border-violet-500 block p-2.5">
+                            <select :id="item.title + 'select'" v-model="item.value"
+                                class="appearance-none relative text-pink-400 bg-transparent outline-none placeholder-violet-700 rd-0.6vw focus:border-violet-500 block p-2.5 mt-0.8vh">
                                 <option v-for="optionalItem of item.choices" :value="optionalItem">
                                     {{ optionalItem }}
                                 </option>
@@ -28,13 +30,14 @@
                         </span>
                     </li>
                 </ul>
+                <br />
                 <div class="flex gap-1vw">
                     <button @click="clearStorage">刷新缓存</button>
                     <button @click="exportConfig">导出配置</button>
                     <button @click="importConfig">导入配置</button>
-                </div>
+                </div><br /><br />
             </div>
-        </formBlock>
+        </formBlockBig>
 
         <button @click="downcountVisible = !downcountVisible">
             倒数日<span class="arrow"> ›</span>
@@ -73,21 +76,23 @@
             </div>
         </formBlock>
 
-        <button v-if="config.enable_about.value" @click="aboutVisible = !aboutVisible">
+        <button v-if="config.layout.enable_about.value" @click="aboutVisible = !aboutVisible">
             关于<span class="arrow"> ›</span>
         </button>
-        <formBlock v-model:visible="aboutVisible">
+        <formBlockBig v-model:visible="aboutVisible">
             <h1>{{ "Everate" + version }}</h1>
             <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-            <p>👏 Hi! 我是 wemsx，这个网站的开发者。这是我首次开发一个完整的 spa，显然会有许多不足。如果你发现了什么值得改进的地方，欢迎通过你能使用的任何渠道联系我。如果你觉得这个启动页还不错，也希望你能把它分享给更多人。</p>
+            <p>👏 Hi! 我是 wemsx，这个网站的开发者。这是我首次开发一个完整的
+                spa，显然会有许多不足。如果你发现了什么值得改进的地方，欢迎通过你能使用的任何渠道联系我。如果你觉得这个启动页还不错，也希望你能把它分享给更多人。</p>
             <p>以下是我的出没的地方。如果你有二次开发的需要，希望你能保留下面的段落。</p>
             <p>还在装修中...</p>
-        </formBlock>
+        </formBlockBig>
     </div>
 </template>
 
 <script setup lang="ts">
 import formBlock from "@/components/form/index.vue";
+import formBlockBig from "@/components/form/bigger.vue";
 import { ref } from "vue";
 import type { Ref } from "vue";
 import { storeToRefs } from "pinia";
@@ -107,8 +112,18 @@ let aboutVisible: Ref<boolean> = ref(false);
 let downcountVisible: Ref<boolean> = ref(false);
 let selected: Ref<number> = ref(0);
 
+interface ConfigTitle {
+    [propName: string]: string
+}
+const configTitle: ConfigTitle = {
+    user: "用户",
+    layout: "页面显示",
+    functions: "功能",
+    safety: "安全性"
+}
+
 const clearStorage = () => {
-    let confirmation = config.notification_before_operation.value
+    let confirmation = config.safety.notification_before_operation.value
         ? window.confirm("确认清除缓存吗？\n在非开发情况下慎用。")
         : true;
     if (confirmation) {
@@ -154,9 +169,9 @@ const importConfig = async () => {
                     let i = JSON.parse(this.result as string)
                     let confirmation = window.confirm("确认导入配置吗？\n会导致当前配置被覆盖。")
                     if (confirmation) {
-                        for (let item in i.userConfig){
+                        /*for (let item in i.userConfig){
                             config[item].value = i.userConfig[item].value
-                        }
+                        }*/
                         data.value = i.downcount;
                     }
                     document.body.removeChild(form);
@@ -171,12 +186,18 @@ const importConfig = async () => {
 </script>
 
 <style scoped>
+.listItem {
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: medium;
+    padding: 0.5vh 0.8vw
+}
+
 #dateInputMonth,
 #dateInputDay,
 #dateInputYear,
 #dateInputTitle,
 .textInput,
-.numberInput  {
+.numberInput {
     height: 4vh;
     background-color: #292929;
     border-radius: 2vw;
@@ -233,10 +254,10 @@ button:active {
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 50px;
-    height: 17px;
+    width: 3.5vw;
+    height: 1.9vh;
     background-color: rgb(82, 82, 82);
-    border-radius: 20px;
+    border-radius: 1.5vw;
     cursor: pointer;
     transition-duration: 0.2s;
 }
@@ -244,9 +265,9 @@ button:active {
 .toggleSwitch::after {
     content: "";
     position: absolute;
-    height: 22px;
-    width: 22px;
-    left: 0px;
+    height: 2.5vh;
+    width: 1.5vw;
+    left: 0;
     background-color: rgb(41, 41, 41);
     border-radius: 50%;
     transition-duration: 0.2s;
