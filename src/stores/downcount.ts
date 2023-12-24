@@ -39,13 +39,13 @@ export const useDownCountStore = defineStore(
         },
       },
       {
-        title: "2025 高考",
+        title: "Everate, 启动！",
         title_draft: "",
-        timestamp: 1749171600000,
+        timestamp: 1698451200000,
         date: {
-          year: 2025,
-          month: 6,
-          day: 6,
+          year: 2023,
+          month: 10,
+          day: 28,
         },
       },
     ]);
