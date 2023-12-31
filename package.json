@@ -17,12 +17,12 @@
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",
     "release:patch": "standard-version --release-as patch",
-    "release": "standard-version --prerelease beta",
+    "release": "standard-version",
     "pages": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "pinia": "^2.1.7",
-    "vue": "^3.3.12"
+    "vue": "^3.4.3"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
