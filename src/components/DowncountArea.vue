@@ -3,9 +3,10 @@
         <ul>
             <li v-for="item of downcount" class="font-size-1.5vw list-none text-center text-left">
                 {{ item.title }}
-                <span v-if="computeDatePlus(item.timestamp) > 0">还有<span class="dateNum relative font-size-3vw">{{ ' ' + computeDatePlus(item.timestamp) + ' ' }}</span>天</span>
                 <span v-if="computeDatePlus(item.timestamp) == 0"><span class="dateNum relative font-size-3vw">{{ ' ' + '就是今天' + ' ' }}</span></span>
-                <span v-if="computeDatePlus(item.timestamp) < 0">已经过了<span class="dateNum relative font-size-3vw">{{ ' ' + -computeDatePlus(item.timestamp) + ' ' }}</span>天</span>
+                <span v-else-if="computeDatePlus(item.timestamp) == 1"><span class="dateNum relative font-size-3vw">{{ ' ' + '就是明天' + ' ' }}</span></span>
+                <span v-else-if="computeDatePlus(item.timestamp) > 0">还有<span class="dateNum relative font-size-3vw">{{ ' ' + computeDatePlus(item.timestamp) + ' ' }}</span>天</span>
+                <span v-else-if="computeDatePlus(item.timestamp) < 0">已经过了<span class="dateNum relative font-size-3vw">{{ ' ' + -computeDatePlus(item.timestamp) + ' ' }}</span>天</span>
             </li>
         </ul>
     </div>

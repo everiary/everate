@@ -118,7 +118,7 @@ const downCountStore = useDownCountStore();
 const { downcount } = storeToRefs(downCountStore);
 const { clearDate, applyDate } = downCountStore;
 
-import { version } from '@/../package.json'
+import version from '@/version'
 
 let settingVisible: Ref<boolean> = ref(false);
 let aboutVisible: Ref<boolean> = ref(false);
@@ -207,6 +207,7 @@ const importConfig = async () => {
             };
         }
     };
+    document.body.removeChild(form);
 };
 </script>
 
