@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/everiary/everate/compare/v0.0.1-beta.9...v1.0.0) (2023-12-31)
+
+
+### 📦‍ Build System | 打包构建
+
+* 构建qDohjhuC ([56329f2](https://github.com/everiary/everate/commit/56329f2a32fff41d2a35550dce8a57dc94236b31))
+* 构建uljSWWjn ([02457bf](https://github.com/everiary/everate/commit/02457bf07cd90eb41564f94ce1dbefd29524500c))
+
+
+### 👻 Hard to Explain | 杂项
+
+* 常规修改 ([fbaa7ff](https://github.com/everiary/everate/commit/fbaa7fff0d4c84deb3e5c89c375603a2ece7fd68))
+* 更改了默认 store 的内容 ([34098fd](https://github.com/everiary/everate/commit/34098fd18b54297f0abaeec3d7b0475f9c200d39))
+
+
+### 🚀 Chore | 构建/工程依赖/工具
+
+* 升级 vue 版本为 3.4 ([45ffec3](https://github.com/everiary/everate/commit/45ffec321b98b95cd84332ee04dafd4c1cbe4d50))
+
+
+### 💄 Styles | 风格
+
+* 去掉了黑框占位 ([e2a3c56](https://github.com/everiary/everate/commit/e2a3c565f50a201418e510879a7624eea06b330c))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复日期计算相关问题 ([5371923](https://github.com/everiary/everate/commit/53719233619adb53a15d37e9068f3c3c47c10ca1))
+
 ### [0.0.1-beta.9](https://github.com/everiary/everate/compare/v0.0.1-beta.8...v0.0.1-beta.9) (2023-12-24)
 
 
